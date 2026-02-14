@@ -82,7 +82,7 @@ export default function HomePage() {
           <div className="max-w-3xl">
             {/* Overline */}
             <p className="animate-fade-up font-display text-sm font-medium tracking-[0.25em] uppercase text-accent">
-              Lexington, North Carolina
+              Bryson City, North Carolina
             </p>
 
             {/* Main headline */}
@@ -127,7 +127,7 @@ export default function HomePage() {
               <div className="hidden h-4 w-px bg-border sm:block" />
               <div className="flex items-center gap-2">
                 <MapPin size={16} weight="light" className="text-accent" />
-                <span>Lexington, NC</span>
+                <span>Bryson City, NC</span>
               </div>
               <div className="hidden h-4 w-px bg-border sm:block" />
               <div className="flex items-center gap-2">
@@ -258,14 +258,15 @@ export default function HomePage() {
                 Our Story
               </p>
               <h2 className="mt-3 font-display text-3xl font-bold text-foreground-strong sm:text-4xl">
-                Three Generations of&nbsp;Smoke
+                Over 20 Years of&nbsp;Smoke
               </h2>
               <div className="mt-6 space-y-4 text-foreground-muted">
                 <p className="leading-relaxed">
-                  What started as a family tradition in a backyard pit has grown
-                  into something the whole community gathers around. For three
-                  generations, we&apos;ve been tending fires before dawn, turning
-                  wood into flavor and patience into plates worth waiting for.
+                  For over 20 years, Pat Monteith has been tending fires before
+                  dawn on Main Street in Bryson City, turning wood into flavor
+                  and patience into plates worth waiting for. What started with
+                  a simple smoker has become a beloved destination in the heart
+                  of the Great Smoky Mountains.
                 </p>
                 <p className="leading-relaxed">
                   We don&apos;t take shortcuts. We don&apos;t rush the process.
@@ -294,12 +295,12 @@ export default function HomePage() {
                 <div className="flex items-center gap-3">
                   <div className="h-px flex-1 bg-border" />
                   <span className="text-sm text-accent">
-                    Family Motto, Since 1987
+                    Pat Monteith, Pitmaster
                   </span>
                 </div>
                 <div className="grid grid-cols-3 gap-6 pt-4">
                   <div className="text-center">
-                    <p className="font-display text-3xl font-bold text-accent">37+</p>
+                    <p className="font-display text-3xl font-bold text-accent">20+</p>
                     <p className="mt-1 text-xs text-foreground-muted">Years Smoking</p>
                   </div>
                   <div className="text-center">
@@ -331,8 +332,8 @@ export default function HomePage() {
               Hours &amp; Location
             </h2>
             <p className="mt-4 text-foreground-muted">
-              We&apos;re in the heart of Lexington — the barbecue capital of North
-              Carolina.
+              We&apos;re on Main Street in Bryson City — in the heart of the
+              Great Smoky Mountains.
             </p>
           </div>
 
@@ -359,11 +360,13 @@ export default function HomePage() {
                 Location
               </h3>
               <div className="mt-4 space-y-2 text-sm text-foreground-muted">
-                <p>123 Hickory Smoke Lane</p>
-                <p>Lexington, NC 27292</p>
+                <p>610 Main St</p>
+                <p>Bryson City, NC 28713</p>
                 <p className="mt-3">
                   <a
-                    href="#"
+                    href="https://www.google.com/maps/dir/?api=1&destination=610+Main+St+Bryson+City+NC+28713"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="font-semibold text-accent transition-colors hover:text-accent-hover"
                   >
                     Get Directions
@@ -381,18 +384,18 @@ export default function HomePage() {
               <div className="mt-4 space-y-2 text-sm text-foreground-muted">
                 <p>
                   <a
-                    href="tel:+13365551234"
+                    href="tel:+18284889521"
                     className="transition-colors hover:text-accent"
                   >
-                    (336) 555-1234
+                    (828) 488-9521
                   </a>
                 </p>
                 <p>
                   <a
-                    href="mailto:hello@barbquewagon.com"
+                    href="mailto:bbqwagon@gmail.com"
                     className="transition-colors hover:text-accent"
                   >
-                    hello@barbquewagon.com
+                    bbqwagon@gmail.com
                   </a>
                 </p>
                 <p className="mt-3">

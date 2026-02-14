@@ -33,7 +33,9 @@ export function Footer() {
             </p>
             <div className="mt-6 flex gap-4">
               <a
-                href="#"
+                href="https://www.facebook.com/p/Bar-B-Que-Wagon-100057395082072/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-md border border-border text-foreground-muted transition-colors hover:border-accent hover:text-accent"
                 aria-label="Facebook"
               >
@@ -99,17 +101,17 @@ export function Footer() {
               <li className="flex items-start gap-2">
                 <MapPin size={16} weight="light" className="mt-0.5 shrink-0 text-accent" />
                 <div>
-                  <p>123 Hickory Smoke Lane</p>
-                  <p>Lexington, NC 27292</p>
+                  <p>610 Main St</p>
+                  <p>Bryson City, NC 28713</p>
                 </div>
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={16} weight="light" className="shrink-0 text-accent" />
                 <a
-                  href="tel:+13365551234"
+                  href="tel:+18284889521"
                   className="transition-colors hover:text-accent"
                 >
-                  (336) 555-1234
+                  (828) 488-9521
                 </a>
               </li>
             </ul>
@@ -122,7 +124,7 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Bar-B-Que Wagon. All rights reserved.
           </p>
           <p className="text-xs text-foreground-muted/40">
-            Crafted with fire and pride in North Carolina
+            Crafted with fire and pride in Bryson City, NC
           </p>
         </div>
       </div>

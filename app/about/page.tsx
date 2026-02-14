@@ -11,33 +11,33 @@ import {
 export const metadata: Metadata = {
   title: "Our Story",
   description:
-    "Three generations of slow-smoked barbecue tradition. Learn about the family, the fire, and the passion behind Bar-B-Que Wagon in Lexington, NC.",
+    "Over 20 years of slow-smoked barbecue in the Great Smoky Mountains. Learn about Pat Monteith, the fire, and the passion behind Bar-B-Que Wagon in Bryson City, NC.",
 };
 
 const timeline = [
   {
-    year: "1987",
-    title: "The Backyard Pit",
+    year: "Early Days",
+    title: "A Passion for Smoke",
     description:
-      "It started with a hand-built pit in the backyard and a stubborn refusal to use gas. Grandpa built it from cinder blocks and scrap metal. The neighborhood showed up uninvited. They never stopped coming.",
+      "It started the way all great barbecue stories do — with a pit, real wood, and a stubborn refusal to take shortcuts. Pat Monteith fell in love with the craft of slow smoking and never looked back.",
   },
   {
-    year: "1995",
-    title: "The First Wagon",
+    year: "The Wagon",
+    title: "Taking It to the People",
     description:
-      "Word spread. What was a weekend hobby became a Saturday tradition at the local farmers market. We loaded a trailer with a smoker, a folding table, and a handwritten menu. The line wrapped around the block.",
+      "What was a personal obsession became a community fixture. The Bar-B-Que Wagon hit the road — a smoker, a handwritten menu, and meat that spoke for itself. Word spread fast in the Smoky Mountains.",
   },
   {
-    year: "2005",
-    title: "A Permanent Home",
+    year: "610 Main St",
+    title: "A Home on Main Street",
     description:
-      "We opened our first brick-and-mortar right here in Lexington. Same recipes. Same wood. Same commitment to doing it the hard way because the hard way is the right way.",
+      "Pat planted roots right on Main Street in Bryson City. Same recipes. Same wood. Same commitment to doing it the hard way — because the hard way is the only way that tastes this good.",
   },
   {
-    year: "Today",
+    year: "20+ Years",
     title: "Still Smoking",
     description:
-      "Three generations later, we still light the pit at 4am. We still hand-pull every shoulder. We still make every side from scratch. The only thing that has changed is how many people we get to feed.",
+      "Over two decades later, the pit still gets lit before dawn. Every shoulder is still hand-pulled. Every side is still made from scratch. The only thing that has changed is how many people we get to feed.",
   },
 ];
 
@@ -58,7 +58,7 @@ const values = [
     icon: Heart,
     title: "Family Recipes",
     description:
-      "Every sauce, rub, and side dish comes from recipes handed down through three generations. We have never needed a cookbook — just a family that takes food seriously.",
+      "Every sauce, rub, and side dish comes from recipes perfected over two decades. We have never needed a cookbook — just a passion for getting it right.",
   },
   {
     icon: TreeEvergreen,
@@ -76,7 +76,7 @@ const values = [
     icon: Users,
     title: "A Family Operation",
     description:
-      "No corporate owners. No investors. No franchise plans. This is a family restaurant run by the family that started it. That is never changing.",
+      "No corporate owners. No investors. No franchise plans. This is Pat Monteith's restaurant, run the same way it has been for over 20 years. That is never changing.",
   },
 ];
 
@@ -93,15 +93,17 @@ export default function AboutPage() {
               Our Story
             </p>
             <h1 className="mt-3 font-display text-4xl font-bold text-foreground-strong sm:text-5xl lg:text-6xl">
-              Three Generations.
+              Two Decades.
               <br />
               One Fire.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-foreground-muted">
-              Bar-B-Que Wagon is not a franchise. It is not a concept. It is a
-              family that fell in love with wood smoke and never looked back.
-              Everything we serve carries the weight of decades spent perfecting
-              the craft — and the joy of sharing it with our neighbors.
+              Bar-B-Que Wagon is not a franchise. It is not a concept. It is
+              Pat Monteith&apos;s life&apos;s work — over 20 years of wood
+              smoke, early mornings, and mouthwatering barbecue right here in
+              Bryson City. Everything we serve carries the weight of decades
+              spent perfecting the craft in the heart of the Great Smoky
+              Mountains.
             </p>
           </div>
         </div>
@@ -119,7 +121,7 @@ export default function AboutPage() {
           <div className="mt-6 flex items-center justify-center gap-3">
             <div className="h-px w-12 bg-accent" />
             <span className="text-sm font-medium text-accent">
-              The Wagon Family
+              Pat Monteith, Pitmaster
             </span>
             <div className="h-px w-12 bg-accent" />
           </div>
@@ -221,10 +223,10 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { stat: "37+", label: "Years of Smoke" },
+              { stat: "20+", label: "Years of Smoke" },
               { stat: "4:00 AM", label: "Daily Pit Start" },
               { stat: "14 hrs", label: "Brisket Smoke Time" },
-              { stat: "3", label: "Generations Strong" },
+              { stat: "610", label: "Main Street, Bryson City" },
             ].map((item) => (
               <div
                 key={item.label}

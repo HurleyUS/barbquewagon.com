@@ -11,29 +11,29 @@ import { ContactForm } from "./contact-form";
 export const metadata: Metadata = {
   title: "Contact & Location",
   description:
-    "Find Bar-B-Que Wagon in Lexington, NC. View our hours, get directions, or send us a message. We're open Tues-Sat 11am-8pm and Sunday 11am-6pm.",
+    "Find Bar-B-Que Wagon at 610 Main St, Bryson City, NC. View our hours, get directions, or send us a message. We're open Tues-Sat 11am-8pm and Sunday 11am-6pm.",
 };
 
 const contactInfo = [
   {
     icon: MapPin,
     title: "Address",
-    lines: ["123 Hickory Smoke Lane", "Lexington, NC 27292"],
-    href: "#",
+    lines: ["610 Main St", "Bryson City, NC 28713"],
+    href: "https://www.google.com/maps/dir/?api=1&destination=610+Main+St+Bryson+City+NC+28713",
     linkText: "Get Directions",
   },
   {
     icon: Phone,
     title: "Phone",
-    lines: ["(336) 555-1234"],
-    href: "tel:+13365551234",
+    lines: ["(828) 488-9521"],
+    href: "tel:+18284889521",
     linkText: "Call Us",
   },
   {
     icon: Envelope,
     title: "Email",
-    lines: ["hello@barbquewagon.com"],
-    href: "mailto:hello@barbquewagon.com",
+    lines: ["bbqwagon@gmail.com"],
+    href: "mailto:bbqwagon@gmail.com",
     linkText: "Send Email",
   },
 ];
@@ -171,8 +171,8 @@ export default function ContactPage() {
                 Find Us
               </h2>
               <p className="mt-3 text-sm text-foreground-muted">
-                Located in the heart of Lexington — the BBQ capital of North
-                Carolina. Look for the smoke.
+                Located on Main Street in Bryson City — in the heart of the
+                Great Smoky Mountains. Look for the smoke.
               </p>
               <div className="mt-6 overflow-hidden rounded-lg border border-border bg-card-bg">
                 {/* Map placeholder area */}
@@ -180,14 +180,16 @@ export default function ContactPage() {
                   <MapPin size={48} weight="light" className="text-accent/40" />
                   <div>
                     <p className="font-display text-lg font-semibold text-foreground-strong">
-                      123 Hickory Smoke Lane
+                      610 Main St
                     </p>
                     <p className="text-sm text-foreground-muted">
-                      Lexington, NC 27292
+                      Bryson City, NC 28713
                     </p>
                   </div>
                   <a
-                    href="#"
+                    href="https://www.google.com/maps/dir/?api=1&destination=610+Main+St+Bryson+City+NC+28713"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="mt-2 inline-flex items-center gap-2 rounded-md bg-accent px-5 py-2.5 text-sm font-semibold text-charcoal transition-colors hover:bg-accent-hover"
                   >
                     Open in Google Maps
