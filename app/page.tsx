@@ -1,65 +1,446 @@
-import Image from "next/image";
+import Link from "next/link";
+import {
+  Fire,
+  Timer,
+  Heart,
+  MapPin,
+  Clock,
+  ArrowRight,
+} from "@phosphor-icons/react/dist/ssr";
 
-export default function Home() {
+const featuredItems = [
+  {
+    name: "Smoked Brisket",
+    description:
+      "Slow-smoked 14 hours over hickory. Bark so good it should be illegal.",
+    price: "$14.99",
+    tag: "Fan Favorite",
+  },
+  {
+    name: "Pulled Pork",
+    description:
+      "Hand-pulled Carolina-style. Tender, smoky, and dressed in our house vinegar sauce.",
+    price: "$12.99",
+    tag: "Classic",
+  },
+  {
+    name: "Baby Back Ribs",
+    description:
+      "Fall-off-the-bone tender. Dry rubbed, slow smoked, finished with a glaze.",
+    price: "$16.99",
+    tag: "Pitmaster Pick",
+  },
+  {
+    name: "Smoked Chicken",
+    description:
+      "Whole bird, brined overnight, smoked low and slow until the skin crackles.",
+    price: "$13.99",
+    tag: "House Special",
+  },
+];
+
+const values = [
+  {
+    icon: Fire,
+    title: "Real Wood. Real Smoke.",
+    description:
+      "We burn hickory and oak — not gas, not pellets. You can taste the difference in every bite.",
+  },
+  {
+    icon: Timer,
+    title: "Low & Slow",
+    description:
+      "Our brisket sees 14 hours of smoke before it hits your plate. You can not rush perfection.",
+  },
+  {
+    icon: Heart,
+    title: "Made with Soul",
+    description:
+      "Family recipes passed down through generations. Every side dish, every sauce, made from scratch daily.",
+  },
+];
+
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <>
+      {/* ============================================
+          HERO SECTION
+          ============================================ */}
+      <section className="relative overflow-hidden">
+        {/* Background layers */}
+        <div className="absolute inset-0 bg-background" />
+        <div className="absolute inset-0 smoke-overlay" />
+        <div className="absolute inset-0 ember-overlay" />
+        <div className="grain absolute inset-0" />
+
+        {/* Decorative ember dots */}
+        <div className="absolute top-1/4 left-1/4 h-1 w-1 rounded-full bg-ember/30" style={{ animation: "ember-pulse 3s ease-in-out infinite" }} />
+        <div className="absolute top-1/3 right-1/3 h-1.5 w-1.5 rounded-full bg-amber/20" style={{ animation: "ember-pulse 4s ease-in-out infinite 1s" }} />
+        <div className="absolute bottom-1/3 right-1/4 h-1 w-1 rounded-full bg-burnt-orange/25" style={{ animation: "ember-pulse 3.5s ease-in-out infinite 0.5s" }} />
+
+        <div className="relative mx-auto max-w-7xl px-6 py-32 lg:px-8 lg:py-44">
+          <div className="max-w-3xl">
+            {/* Overline */}
+            <p className="animate-fade-up font-display text-sm font-medium tracking-[0.25em] uppercase text-accent">
+              Lexington, North Carolina
+            </p>
+
+            {/* Main headline */}
+            <h1 className="animate-fade-up animate-delay-100 mt-6 font-display text-5xl leading-[1.1] font-bold tracking-tight text-foreground-strong sm:text-6xl lg:text-7xl">
+              Slow Smoked.
+              <br />
+              <span className="text-gradient-warm">Hand Pulled.</span>
+              <br />
+              Soul Fed.
+            </h1>
+
+            {/* Sub copy */}
+            <p className="animate-fade-up animate-delay-200 mt-8 max-w-xl text-lg leading-relaxed text-foreground-muted">
+              Real hickory-smoked barbecue made the old-fashioned way — low, slow,
+              and with love. No shortcuts. No compromises. Just meat, wood, fire,
+              and time.
+            </p>
+
+            {/* CTAs */}
+            <div className="animate-fade-up animate-delay-300 mt-10 flex flex-wrap items-center gap-4">
+              <Link
+                href="/menu"
+                className="inline-flex items-center gap-2 rounded-md bg-accent px-6 py-3 text-sm font-semibold text-charcoal transition-colors hover:bg-accent-hover"
+              >
+                View Our Menu
+                <ArrowRight size={16} weight="bold" />
+              </Link>
+              <Link
+                href="/catering"
+                className="inline-flex items-center gap-2 rounded-md border border-border px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-accent hover:text-accent"
+              >
+                Catering Services
+              </Link>
+            </div>
+
+            {/* Quick info bar */}
+            <div className="animate-fade-up animate-delay-400 mt-16 flex flex-wrap items-center gap-6 text-sm text-foreground-muted">
+              <div className="flex items-center gap-2">
+                <Clock size={16} weight="light" className="text-accent" />
+                <span>Tues-Sat 11am-8pm</span>
+              </div>
+              <div className="hidden h-4 w-px bg-border sm:block" />
+              <div className="flex items-center gap-2">
+                <MapPin size={16} weight="light" className="text-accent" />
+                <span>Lexington, NC</span>
+              </div>
+              <div className="hidden h-4 w-px bg-border sm:block" />
+              <div className="flex items-center gap-2">
+                <Fire size={16} weight="light" className="text-accent" />
+                <span>Smoked over real hickory</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom fade */}
+        <div className="absolute right-0 bottom-0 left-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      </section>
+
+      {/* ============================================
+          FEATURED MENU SECTION
+          ============================================ */}
+      <section className="relative bg-background py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          {/* Section header */}
+          <div className="max-w-2xl">
+            <p className="font-display text-sm font-medium tracking-[0.25em] uppercase text-accent">
+              From the Pit
+            </p>
+            <h2 className="mt-3 font-display text-3xl font-bold text-foreground-strong sm:text-4xl">
+              What We&apos;re Smoking
+            </h2>
+            <p className="mt-4 text-lg leading-relaxed text-foreground-muted">
+              Every plate comes with your choice of two sides and a slice of
+              fresh-baked cornbread. All meats smoked daily — when it&apos;s gone,
+              it&apos;s gone.
+            </p>
+          </div>
+
+          {/* Menu grid */}
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {featuredItems.map((item) => (
+              <article
+                key={item.name}
+                className="group relative overflow-hidden rounded-lg border border-border bg-card-bg p-6 transition-all duration-300 hover:border-border-hover hover:bg-card-bg-hover"
+              >
+                {/* Tag */}
+                <span className="inline-block rounded-sm bg-accent/10 px-2.5 py-1 text-xs font-medium text-accent">
+                  {item.tag}
+                </span>
+
+                {/* Content */}
+                <h3 className="mt-4 font-display text-xl font-bold text-foreground-strong">
+                  {item.name}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-foreground-muted">
+                  {item.description}
+                </p>
+
+                {/* Price */}
+                <div className="mt-6 flex items-baseline justify-between">
+                  <span className="font-display text-2xl font-bold text-accent">
+                    {item.price}
+                  </span>
+                  <span className="text-xs text-foreground-muted/60">
+                    plate w/ 2 sides
+                  </span>
+                </div>
+
+                {/* Decorative bottom accent */}
+                <div className="absolute right-0 bottom-0 left-0 h-0.5 origin-left scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100" />
+              </article>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div className="mt-10">
+            <Link
+              href="/menu"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-accent-hover"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+              See the full menu
+              <ArrowRight size={16} weight="bold" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          VALUES / WHY US SECTION
+          ============================================ */}
+      <section className="relative bg-background-secondary py-24 lg:py-32">
+        <div className="absolute inset-0 grain" />
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+          {/* Section header — centered */}
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="font-display text-sm font-medium tracking-[0.25em] uppercase text-accent">
+              The Difference
+            </p>
+            <h2 className="mt-3 font-display text-3xl font-bold text-foreground-strong sm:text-4xl">
+              Barbecue Done Right
+            </h2>
+          </div>
+
+          {/* Values grid */}
+          <div className="mt-16 grid gap-8 sm:grid-cols-3">
+            {values.map((value) => (
+              <div key={value.title} className="text-center">
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-lg bg-accent/10">
+                  <value.icon size={28} weight="light" className="text-accent" />
+                </div>
+                <h3 className="mt-6 font-display text-lg font-bold text-foreground-strong">
+                  {value.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-foreground-muted">
+                  {value.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          OUR STORY PREVIEW
+          ============================================ */}
+      <section className="relative bg-background py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+            {/* Left — Text */}
+            <div>
+              <p className="font-display text-sm font-medium tracking-[0.25em] uppercase text-accent">
+                Our Story
+              </p>
+              <h2 className="mt-3 font-display text-3xl font-bold text-foreground-strong sm:text-4xl">
+                Three Generations of&nbsp;Smoke
+              </h2>
+              <div className="mt-6 space-y-4 text-foreground-muted">
+                <p className="leading-relaxed">
+                  What started as a family tradition in a backyard pit has grown
+                  into something the whole community gathers around. For three
+                  generations, we&apos;ve been tending fires before dawn, turning
+                  wood into flavor and patience into plates worth waiting for.
+                </p>
+                <p className="leading-relaxed">
+                  We don&apos;t take shortcuts. We don&apos;t rush the process.
+                  Every brisket gets its full 14 hours. Every rack of ribs earns
+                  its bark. That&apos;s not a slogan — it&apos;s a promise we make
+                  every single morning at 4am when we light the pit.
+                </p>
+              </div>
+              <Link
+                href="/about"
+                className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-accent-hover"
+              >
+                Read our full story
+                <ArrowRight size={16} weight="bold" />
+              </Link>
+            </div>
+
+            {/* Right — Atmospheric box */}
+            <div className="relative overflow-hidden rounded-lg border border-border bg-card-bg p-8 lg:p-12">
+              <div className="absolute inset-0 grain" />
+              <div className="relative space-y-6">
+                <blockquote className="font-display text-2xl leading-snug font-medium text-foreground-strong italic">
+                  &ldquo;Good barbecue isn&apos;t made in a kitchen. It&apos;s made
+                  outside, next to the fire, with your hands and your patience.&rdquo;
+                </blockquote>
+                <div className="flex items-center gap-3">
+                  <div className="h-px flex-1 bg-border" />
+                  <span className="text-sm text-accent">
+                    Family Motto, Since 1987
+                  </span>
+                </div>
+                <div className="grid grid-cols-3 gap-6 pt-4">
+                  <div className="text-center">
+                    <p className="font-display text-3xl font-bold text-accent">37+</p>
+                    <p className="mt-1 text-xs text-foreground-muted">Years Smoking</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="font-display text-3xl font-bold text-accent">4am</p>
+                    <p className="mt-1 text-xs text-foreground-muted">Fires Lit Daily</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="font-display text-3xl font-bold text-accent">14hr</p>
+                    <p className="mt-1 text-xs text-foreground-muted">Brisket Smoke</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          HOURS & LOCATION
+          ============================================ */}
+      <section className="relative bg-background-secondary py-24 lg:py-32">
+        <div className="absolute inset-0 ember-overlay" />
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="font-display text-sm font-medium tracking-[0.25em] uppercase text-accent">
+              Come Hungry
+            </p>
+            <h2 className="mt-3 font-display text-3xl font-bold text-foreground-strong sm:text-4xl">
+              Hours &amp; Location
+            </h2>
+            <p className="mt-4 text-foreground-muted">
+              We&apos;re in the heart of Lexington — the barbecue capital of North
+              Carolina.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
+            {/* Hours card */}
+            <div className="rounded-lg border border-border bg-card-bg p-8 text-center">
+              <Clock size={28} weight="light" className="mx-auto text-accent" />
+              <h3 className="mt-4 font-display text-lg font-bold text-foreground-strong">
+                Hours
+              </h3>
+              <div className="mt-4 space-y-2 text-sm text-foreground-muted">
+                <p>Tuesday - Saturday</p>
+                <p className="font-semibold text-foreground">11:00 AM - 8:00 PM</p>
+                <p className="mt-3">Sunday</p>
+                <p className="font-semibold text-foreground">11:00 AM - 6:00 PM</p>
+                <p className="mt-3 text-foreground-muted/60">Closed Monday</p>
+              </div>
+            </div>
+
+            {/* Location card */}
+            <div className="rounded-lg border border-border bg-card-bg p-8 text-center">
+              <MapPin size={28} weight="light" className="mx-auto text-accent" />
+              <h3 className="mt-4 font-display text-lg font-bold text-foreground-strong">
+                Location
+              </h3>
+              <div className="mt-4 space-y-2 text-sm text-foreground-muted">
+                <p>123 Hickory Smoke Lane</p>
+                <p>Lexington, NC 27292</p>
+                <p className="mt-3">
+                  <a
+                    href="#"
+                    className="font-semibold text-accent transition-colors hover:text-accent-hover"
+                  >
+                    Get Directions
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            {/* Contact card */}
+            <div className="rounded-lg border border-border bg-card-bg p-8 text-center">
+              <Fire size={28} weight="light" className="mx-auto text-accent" />
+              <h3 className="mt-4 font-display text-lg font-bold text-foreground-strong">
+                Get in Touch
+              </h3>
+              <div className="mt-4 space-y-2 text-sm text-foreground-muted">
+                <p>
+                  <a
+                    href="tel:+13365551234"
+                    className="transition-colors hover:text-accent"
+                  >
+                    (336) 555-1234
+                  </a>
+                </p>
+                <p>
+                  <a
+                    href="mailto:hello@barbquewagon.com"
+                    className="transition-colors hover:text-accent"
+                  >
+                    hello@barbquewagon.com
+                  </a>
+                </p>
+                <p className="mt-3">
+                  <Link
+                    href="/contact"
+                    className="font-semibold text-accent transition-colors hover:text-accent-hover"
+                  >
+                    Contact Us
+                  </Link>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          FINAL CTA
+          ============================================ */}
+      <section className="relative overflow-hidden bg-background py-24 lg:py-32">
+        <div className="absolute inset-0 smoke-overlay" />
+        <div className="absolute inset-0 grain" />
+        <div className="relative mx-auto max-w-3xl px-6 text-center lg:px-8">
+          <h2 className="font-display text-3xl font-bold text-foreground-strong sm:text-4xl lg:text-5xl">
+            Your Next Great Meal Is&nbsp;Waiting
+          </h2>
+          <p className="mt-6 text-lg text-foreground-muted">
+            Whether it&apos;s a weekday lunch, a weekend family feast, or
+            catering for your biggest event — we&apos;ve got the smoke, the
+            sides, and the soul to make it unforgettable.
           </p>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <Link
+              href="/menu"
+              className="inline-flex items-center gap-2 rounded-md bg-accent px-6 py-3 text-sm font-semibold text-charcoal transition-colors hover:bg-accent-hover"
+            >
+              Explore the Menu
+              <ArrowRight size={16} weight="bold" />
+            </Link>
+            <Link
+              href="/catering"
+              className="inline-flex items-center gap-2 rounded-md border border-border px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-accent hover:text-accent"
+            >
+              Catering Inquiry
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+    </>
   );
 }

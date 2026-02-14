@@ -1,26 +1,225 @@
 @import "tailwindcss";
 
+/* ============================================
+   Bar-B-Que Wagon — Warm Smokehouse Theme
+   ============================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Core palette */
+  --charcoal: #1a1a1a;
+  --smoky-brown: #2a1f1a;
+  --deep-smoke: #1f1710;
+  --amber: #d97706;
+  --amber-light: #f59e0b;
+  --burnt-orange: #c2410c;
+  --cream: #fef3c7;
+  --warm-white: #fdf8f0;
+  --warm-gray: #a89585;
+  --dark-leather: #3d2b1f;
+  --hickory: #4a3728;
+  --ash: #6b5b4f;
+  --ember: #ea580c;
+
+  /* Semantic tokens */
+  --background: var(--deep-smoke);
+  --background-secondary: var(--smoky-brown);
+  --background-tertiary: var(--dark-leather);
+  --foreground: var(--cream);
+  --foreground-muted: var(--warm-gray);
+  --foreground-strong: var(--warm-white);
+  --accent: var(--amber);
+  --accent-hover: var(--amber-light);
+  --accent-strong: var(--burnt-orange);
+  --border: #3d2e22;
+  --border-hover: #5a4435;
+  --card-bg: #241a12;
+  --card-bg-hover: #2e2118;
+  --input-bg: #1a1208;
+  --input-border: #3d2e22;
+
+  /* Subtle texture gradient */
+  --smoke-gradient: radial-gradient(ellipse at 50% 0%, rgba(217, 119, 6, 0.04) 0%, transparent 60%);
+  --ember-glow: radial-gradient(ellipse at 50% 100%, rgba(194, 65, 12, 0.06) 0%, transparent 50%);
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
+  --color-background-tertiary: var(--background-tertiary);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-foreground-strong: var(--foreground-strong);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-strong: var(--accent-strong);
+  --color-border: var(--border);
+  --color-border-hover: var(--border-hover);
+  --color-card-bg: var(--card-bg);
+  --color-card-bg-hover: var(--card-bg-hover);
+  --color-input-bg: var(--input-bg);
+  --color-input-border: var(--input-border);
+  --color-charcoal: var(--charcoal);
+  --color-smoky-brown: var(--smoky-brown);
+  --color-amber: var(--amber);
+  --color-amber-light: var(--amber-light);
+  --color-burnt-orange: var(--burnt-orange);
+  --color-cream: var(--cream);
+  --color-warm-white: var(--warm-white);
+  --color-warm-gray: var(--warm-gray);
+  --color-hickory: var(--hickory);
+  --color-ash: var(--ash);
+  --color-ember: var(--ember);
+
+  --font-display: var(--font-playfair);
+  --font-body: var(--font-dm-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ============================================
+   Base Styles
+   ============================================ */
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--amber);
+  color: var(--charcoal);
+}
+
+/* ============================================
+   Scrollbar
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-hover);
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes smoke-drift {
+  0%, 100% {
+    opacity: 0.03;
+    transform: translateY(0) scaleX(1);
+  }
+  50% {
+    opacity: 0.06;
+    transform: translateY(-20px) scaleX(1.1);
+  }
+}
+
+@keyframes ember-pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+.animate-delay-600 { animation-delay: 600ms; }
+.animate-delay-700 { animation-delay: 700ms; }
+.animate-delay-800 { animation-delay: 800ms; }
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+.smoke-overlay {
+  background-image: var(--smoke-gradient);
+}
+
+.ember-overlay {
+  background-image: var(--ember-glow);
+}
+
+.text-gradient-warm {
+  background: linear-gradient(135deg, var(--amber) 0%, var(--burnt-orange) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Grain texture overlay */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* Divider with decorative element */
+.bbq-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bbq-divider::before,
+.bbq-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
 }
