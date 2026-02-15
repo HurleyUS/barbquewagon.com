@@ -80,17 +80,32 @@ export default function HomePage() {
       {/* ============================================
           HERO SECTION
           ============================================ */}
-      <section className="relative overflow-hidden">
-        {/* Background layers */}
-        <div className="absolute inset-0 bg-background" />
-        <div className="absolute inset-0 smoke-overlay" />
-        <div className="absolute inset-0 ember-overlay" />
-        <div className="grain absolute inset-0" />
+      <section className="relative min-h-[90vh] overflow-hidden">
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/exterior/building-1.jpg"
+            alt="Bar-B-Que Wagon iconic sign with pig"
+            fill
+            className="object-cover object-center"
+            priority
+            quality={85}
+          />
+        </div>
+        
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-charcoal/95 via-charcoal/80 to-charcoal/60" />
+        
+        {/* Atmospheric overlays */}
+        <div className="absolute inset-0 smoke-overlay opacity-40" />
+        <div className="absolute inset-0 ember-overlay opacity-30" />
+        <div className="grain absolute inset-0 opacity-50" />
 
         {/* Decorative ember dots */}
-        <div className="absolute top-1/4 left-1/4 h-1 w-1 rounded-full bg-ember/30" style={{ animation: "ember-pulse 3s ease-in-out infinite" }} />
-        <div className="absolute top-1/3 right-1/3 h-1.5 w-1.5 rounded-full bg-amber/20" style={{ animation: "ember-pulse 4s ease-in-out infinite 1s" }} />
-        <div className="absolute bottom-1/3 right-1/4 h-1 w-1 rounded-full bg-burnt-orange/25" style={{ animation: "ember-pulse 3.5s ease-in-out infinite 0.5s" }} />
+        <div className="absolute top-1/4 left-1/4 h-1.5 w-1.5 rounded-full bg-ember/40" style={{ animation: "ember-pulse 3s ease-in-out infinite" }} />
+        <div className="absolute top-1/3 right-1/3 h-2 w-2 rounded-full bg-amber/30" style={{ animation: "ember-pulse 4s ease-in-out infinite 1s" }} />
+        <div className="absolute bottom-1/3 right-1/4 h-1.5 w-1.5 rounded-full bg-burnt-orange/35" style={{ animation: "ember-pulse 3.5s ease-in-out infinite 0.5s" }} />
+        <div className="absolute top-1/2 left-1/3 h-1 w-1 rounded-full bg-accent/20" style={{ animation: "ember-pulse 2.5s ease-in-out infinite 0.3s" }} />
 
         <div className="relative mx-auto max-w-7xl px-6 py-32 lg:px-8 lg:py-44">
           <div className="max-w-3xl">
