@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   Fire,
   Timer,
@@ -15,6 +16,7 @@ const featuredItems = [
       "Slow-smoked 14 hours over hickory. Bark so good it should be illegal.",
     price: "$14.99",
     tag: "Fan Favorite",
+    image: "/images/food/brisket-plate.jpg",
   },
   {
     name: "Pulled Pork",
@@ -22,6 +24,7 @@ const featuredItems = [
       "Hand-pulled Carolina-style. Tender, smoky, and dressed in our house vinegar sauce.",
     price: "$12.99",
     tag: "Classic",
+    image: "/images/food/pulled-pork-platter.jpg",
   },
   {
     name: "Baby Back Ribs",
@@ -29,14 +32,25 @@ const featuredItems = [
       "Fall-off-the-bone tender. Dry rubbed, slow smoked, finished with a glaze.",
     price: "$16.99",
     tag: "Pitmaster Pick",
+    image: "/images/food/pork-ribs.jpg",
   },
   {
-    name: "Smoked Chicken",
+    name: "Smoked Turkey",
     description:
-      "Whole bird, brined overnight, smoked low and slow until the skin crackles.",
+      "Half pound of tender smoked turkey breast, served with your choice of sides.",
     price: "$13.99",
     tag: "House Special",
+    image: "/images/food/smoked-turkey.jpg",
   },
+];
+
+const galleryImages = [
+  { src: "/images/food/ribs-brisket.jpg", alt: "Ribs and brisket combo plate" },
+  { src: "/images/food/combo-platter.jpg", alt: "BBQ combo platter" },
+  { src: "/images/food/beef-sandwich-plate.jpg", alt: "BBQ beef sandwich with fries" },
+  { src: "/images/exterior/building-3.jpg", alt: "Bar-B-Que Wagon exterior" },
+  { src: "/images/food/chicken-pork-plate.jpg", alt: "Chicken and pork plate" },
+  { src: "/images/food/pork-sandwich-fries.jpg", alt: "Pork sandwich with fries" },
 ];
 
 const values = [
@@ -167,29 +181,40 @@ export default function HomePage() {
             {featuredItems.map((item) => (
               <article
                 key={item.name}
-                className="group relative overflow-hidden rounded-lg border border-border bg-card-bg p-6 transition-all duration-300 hover:border-border-hover hover:bg-card-bg-hover"
+                className="group relative overflow-hidden rounded-lg border border-border bg-card-bg transition-all duration-300 hover:border-border-hover hover:bg-card-bg-hover"
               >
-                {/* Tag */}
-                <span className="inline-block rounded-sm bg-accent/10 px-2.5 py-1 text-xs font-medium text-accent">
-                  {item.tag}
-                </span>
-
-                {/* Content */}
-                <h3 className="mt-4 font-display text-xl font-bold text-foreground-strong">
-                  {item.name}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-foreground-muted">
-                  {item.description}
-                </p>
-
-                {/* Price */}
-                <div className="mt-6 flex items-baseline justify-between">
-                  <span className="font-display text-2xl font-bold text-accent">
-                    {item.price}
+                {/* Image */}
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  {/* Tag overlay */}
+                  <span className="absolute top-3 left-3 inline-block rounded-sm bg-accent px-2.5 py-1 text-xs font-medium text-charcoal">
+                    {item.tag}
                   </span>
-                  <span className="text-xs text-foreground-muted/60">
-                    plate w/ 2 sides
-                  </span>
+                </div>
+
+                <div className="p-6">
+                  {/* Content */}
+                  <h3 className="font-display text-xl font-bold text-foreground-strong">
+                    {item.name}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-foreground-muted">
+                    {item.description}
+                  </p>
+
+                  {/* Price */}
+                  <div className="mt-4 flex items-baseline justify-between">
+                    <span className="font-display text-2xl font-bold text-accent">
+                      {item.price}
+                    </span>
+                    <span className="text-xs text-foreground-muted/60">
+                      plate w/ 2 sides
+                    </span>
+                  </div>
                 </div>
 
                 {/* Decorative bottom accent */}
@@ -247,9 +272,47 @@ export default function HomePage() {
       </section>
 
       {/* ============================================
-          OUR STORY PREVIEW
+          PHOTO GALLERY
           ============================================ */}
       <section className="relative bg-background py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="font-display text-sm font-medium tracking-[0.25em] uppercase text-accent">
+              Fresh off the Pit
+            </p>
+            <h2 className="mt-3 font-display text-3xl font-bold text-foreground-strong sm:text-4xl">
+              See What&apos;s Cooking
+            </h2>
+          </div>
+
+          {/* Gallery grid */}
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {galleryImages.map((img, index) => (
+              <div
+                key={img.src}
+                className={`group relative overflow-hidden rounded-lg ${
+                  index === 3 ? "sm:col-span-2 lg:col-span-1" : ""
+                }`}
+              >
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          OUR STORY PREVIEW
+          ============================================ */}
+      <section className="relative bg-background-secondary py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
             {/* Left — Text */}
