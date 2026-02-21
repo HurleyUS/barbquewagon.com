@@ -19,15 +19,15 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "Bar-B-Que Wagon | Slow Smoked BBQ in Lexington, NC",
+    default: "Bar-B-Que Wagon | Slow Smoked BBQ in Bryson City, NC",
     template: "%s | Bar-B-Que Wagon",
   },
   description:
-    "Authentic slow-smoked barbecue in Lexington, North Carolina. Hand-pulled pork, tender brisket, fall-off-the-bone ribs, and homemade sides. Dine in, take out, or let us cater your next event.",
+    "Authentic slow-smoked barbecue in Bryson City, North Carolina. Hand-pulled pork, tender brisket, fall-off-the-bone ribs, and homemade sides. Dine in, take out, or let us cater your next event.",
   keywords: [
     "BBQ",
     "barbecue",
-    "Lexington NC",
+    "Bryson City NC",
     "smoked meat",
     "brisket",
     "pulled pork",
