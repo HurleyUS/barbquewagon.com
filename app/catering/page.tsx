@@ -219,7 +219,7 @@ export default function CateringPage() {
                 </div>
                 <div className="flex items-start gap-3">
                   <Check size={16} weight="bold" className="mt-0.5 shrink-0 text-accent" />
-                  <span>Free delivery within 15 miles of Lexington</span>
+                  <span>Free delivery within 15 miles of Bryson City</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <Check size={16} weight="bold" className="mt-0.5 shrink-0 text-accent" />
