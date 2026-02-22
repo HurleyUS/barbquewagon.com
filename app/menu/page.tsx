@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
+import { JsonLd } from "@/components/json-ld";
+import { getMenuSchema } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
   title: "Menu",
@@ -214,6 +216,7 @@ const menuCategories: MenuCategory[] = [
 export default function MenuPage() {
   return (
     <>
+      <JsonLd data={getMenuSchema()} />
       {/* Hero */}
       <section className="relative overflow-hidden bg-background py-20 lg:py-28">
         <div className="absolute inset-0 smoke-overlay" />

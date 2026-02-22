@@ -8,6 +8,8 @@ import {
   Clock,
   ArrowRight,
 } from "@phosphor-icons/react/dist/ssr";
+import { JsonLd } from "@/components/json-ld";
+import { getRestaurantSchema } from "@/lib/structured-data";
 
 const featuredItems = [
   {
@@ -77,6 +79,7 @@ const values = [
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={getRestaurantSchema()} />
       {/* ============================================
           HERO SECTION
           ============================================ */}

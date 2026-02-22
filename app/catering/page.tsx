@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { CateringForm } from "./catering-form";
 import { Check, ArrowRight } from "@phosphor-icons/react/dist/ssr";
+import { JsonLd } from "@/components/json-ld";
+import { getCateringSchema } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
   title: "Catering",
@@ -90,6 +92,7 @@ const cateringPackages: CateringPackage[] = [
 export default function CateringPage() {
   return (
     <>
+      <JsonLd data={getCateringSchema()} />
       {/* Hero */}
       <section className="relative overflow-hidden bg-background py-20 lg:py-28">
         <div className="absolute inset-0 smoke-overlay" />
