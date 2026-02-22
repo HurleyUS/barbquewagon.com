@@ -58,8 +58,12 @@ export function CateringForm() {
 
     setIsSubmitting(true);
     try {
-      // TODO: Replace with actual API call
-      await new Promise<void>((resolve) => setTimeout(resolve, 1500));
+      const res = await fetch("/api/catering", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(result.data),
+      });
+      if (!res.ok) throw new Error(await res.text());
       toast.success("Inquiry sent! We'll get back to you within 24 hours.");
       (e.target as HTMLFormElement).reset();
     } catch (err) {
