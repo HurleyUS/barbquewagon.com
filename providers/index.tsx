@@ -1,11 +1,10 @@
 "use client";
 
-import { ThemeProvider } from "./theme";
 import { Toaster } from "sonner";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <ThemeProvider>
+    <>
       {children}
       <Toaster
         position="bottom-right"
@@ -17,6 +16,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
           },
         }}
       />
-    </ThemeProvider>
+    </>
   );
 }
