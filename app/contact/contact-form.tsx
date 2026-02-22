@@ -57,8 +57,12 @@ export function ContactForm() {
 
     setIsSubmitting(true);
     try {
-      // TODO: Replace with actual API call
-      await new Promise<void>((resolve) => setTimeout(resolve, 1500));
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(result.data),
+      });
+      if (!res.ok) throw new Error(await res.text());
       toast.success("Message sent! We'll get back to you soon.");
       (e.target as HTMLFormElement).reset();
     } catch (err) {
