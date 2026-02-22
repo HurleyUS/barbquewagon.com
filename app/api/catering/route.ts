@@ -2,7 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { z } from "zod";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResend() {
+  return new Resend(process.env.RESEND_API_KEY);
+}
 
 const OWNER_EMAIL = process.env.OWNER_EMAIL ?? "info@barbquewagon.com";
 const FROM_EMAIL = process.env.FROM_EMAIL ?? "noreply@barbquewagon.com";
@@ -29,7 +31,7 @@ export async function POST(request: NextRequest) {
     const { name, email, phone, date, guests, eventType, message } =
       result.data;
 
-    await resend.emails.send({
+    await getResend().emails.send({
       from: FROM_EMAIL,
       to: OWNER_EMAIL,
       replyTo: email,
