@@ -3,29 +3,41 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "bun scripts/dev-localhost.mjs",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "bun scripts/biome-lint.mjs",
+    "dev:raw": "next dev",
+    "dev:info": "bun scripts/dev-localhost-info.mjs",
+    "tsc": "tsgo --noEmit",
+    "typecheck": "tsgo --noEmit",
+    "lint:fix": "bun scripts/biome-lint.mjs --fix",
+    "check": "bun tsc && bun lint",
+    "test": "bun test",
+    "format": "biome format --write .",
+    "ship": "bun scripts/ship.mts"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
-    "next": "16.1.6",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
-    "resend": "^6.9.2",
+    "next": "16.2.6",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "resend": "^6.12.3",
     "sonner": "^2.0.7",
-    "zod": "^4.3.6"
+    "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.1.6",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "@tailwindcss/postcss": "^4.3.0",
+    "@types/node": "^25.7.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^10.3.0",
+    "eslint-config-next": "16.2.6",
+    "tailwindcss": "^4.3.0",
+    "typescript": "^6.0.3",
+    "@biomejs/biome": "latest",
+    "@types/bun": "latest",
+    "@typescript/native-preview": "latest"
   },
   "ignoreScripts": [
     "sharp",
