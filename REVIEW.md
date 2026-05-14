@@ -27,9 +27,8 @@ Resolving dependencies
 Resolved, downloaded and extracted [2]
 Saved lockfile
 
-Audit scope: 47 changed files vs main (7205b98..HEAD)
-note: hid 8 clone groups below minOccurrences=3 (lower --min-occurrences to see them)
-✓ No issues in 47 changed files (0.30s)
+Audit scope: 1 changed file vs main (6a654f5..HEAD)
+✓ No issues in 1 changed file (0.23s)
 
 
 ## DEAD

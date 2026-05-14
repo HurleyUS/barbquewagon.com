@@ -9,7 +9,6 @@
 - [ ] Replace the local lightweight form primitives with full shadcn-compatible `Form`, `Field`, `Label`, `Select`, and error-message primitives.
 - [ ] Add `Badge` for menu tags, catering package flags, and similar metadata chips.
 - [ ] Add `Separator` for footer/nav/section dividers instead of one-off border markup.
-- [ ] Add `Skeleton` for future loading states and route-level fallbacks.
 
 ## Navigation And Prefetching
 
@@ -41,6 +40,13 @@
 - [ ] Add `app/error.tsx`.
 - [ ] Add `app/global-error.tsx`.
 
+## Rendering Strategy
+
+- [ ] Move the marketing surface toward a client-rendered static shell because the local business content does not need dynamic rendering or SSR.
+- [ ] Keep only form submission endpoints server-side for Resend and Convex lead capture.
+- [ ] Keep route metadata, JSON-LD, sitemap, robots, and manifest server-authored for crawlers.
+- [ ] Avoid introducing streaming or route loading states unless the site gains genuinely dynamic pages.
+
 ## Accessibility
 
 - [ ] Ensure the mobile nav traps focus, closes on Escape, restores focus, and exposes title/description semantics.
@@ -54,10 +60,8 @@
 
 ## Performance And Operations
 
-- [ ] Keep React Compiler opt-in only; benchmarks showed preflight does not help this project by default.
-- [ ] Preserve Turbopack as the default build path.
-- [ ] Keep the protected `bun lint` push gate as the source of truth for lint/type failures.
-- [ ] Add Vercel Speed Insights or equivalent production performance feedback if desired.
-- [ ] Add route-level loading states once there are dynamic pages worth streaming.
-- [ ] Add smoke tests for contact and catering route handlers once Convex production env vars are available.
-- [ ] Configure `CONVEX_DEPLOYMENT` and `CONVEX_DEPLOY_KEY` secrets before expecting CI to deploy Convex functions.
+- [ ] Use Lighthouse in-browser for point-in-time performance checks.
+- [ ] Use PostHog web analytics for audience experience trends over time.
+- [ ] Log into Convex cloud for this repo and run `bunx convex deploy --typecheck disable` to create/select the production deployment.
+- [ ] Push `CONVEX_DEPLOYMENT`, `CONVEX_DEPLOY_KEY`, and `NEXT_PUBLIC_CONVEX_URL` into GitHub/Vercel secrets once Convex cloud returns them.
+- [ ] Add smoke tests for contact and catering route handlers after production Convex env vars are configured.
