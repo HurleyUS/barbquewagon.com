@@ -1,3 +1,6 @@
+/**
+ * App Contact Page public module surface.
+ */
 import type { Metadata } from "next";
 import { Phone, Envelope, MapPin, Clock, NavigationArrow } from "@phosphor-icons/react/dist/ssr";
 import { ContactForm } from "./contact-form";

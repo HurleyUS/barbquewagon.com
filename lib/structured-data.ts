@@ -3,7 +3,7 @@
  * @see https://developers.google.com/search/docs/appearance/structured-data
  */
 
-export const BUSINESS_INFO = {
+const BUSINESS_INFO = {
   name: "Bar-B-Que Wagon",
   address: {
     street: "610 Main St",

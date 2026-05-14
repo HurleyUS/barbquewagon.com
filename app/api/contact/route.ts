@@ -1,6 +1,10 @@
+/**
+ * App Api Contact Route public module surface.
+ */
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { z } from "zod";
+import { saveLead } from "@/lib/lead-store";
 
 function getResend() {
   return new Resend(process.env.RESEND_API_KEY);
@@ -27,6 +31,15 @@ export async function POST(request: NextRequest) {
     }
 
     const { name, email, phone, subject, message } = result.data;
+
+    await saveLead({
+      email,
+      message: `Subject: ${subject}\n\n${message}`,
+      name,
+      phone,
+      source: "barbquewagon.com",
+      type: "contact",
+    });
 
     await getResend().emails.send({
       from: FROM_EMAIL,

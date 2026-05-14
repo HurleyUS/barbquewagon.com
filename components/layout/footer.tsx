@@ -1,3 +1,6 @@
+/**
+ * Components Layout Footer public module surface.
+ */
 import Link from "next/link";
 import { Phone, MapPin, Clock, FacebookLogo, InstagramLogo } from "@phosphor-icons/react/dist/ssr";
 

@@ -1,3 +1,6 @@
+/**
+ * App About Page public module surface.
+ */
 import type { Metadata } from "next";
 import {
   Fire,

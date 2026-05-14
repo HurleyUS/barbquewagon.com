@@ -1,3 +1,6 @@
+/**
+ * App Menu Page public module surface.
+ */
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";

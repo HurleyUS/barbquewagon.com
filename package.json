@@ -18,17 +18,22 @@
     "ship": "bun scripts/ship.mts"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
     "@phosphor-icons/react": "^2.1.10",
+    "@tailwindcss/postcss": "^4.3.0",
+    "convex": "^1.38.0",
     "next": "16.2.6",
     "react": "19.2.6",
     "react-dom": "19.2.6",
+    "react-hook-form": "^7.75.0",
     "resend": "^6.12.3",
     "sonner": "^2.0.7",
-    "zod": "^4.4.3"
+    "tailwindcss": "^4.3.0",
+    "zod": "^4.4.3",
+    "zustand": "^5.0.13"
   },
   "devDependencies": {
     "@biomejs/biome": "latest",
-    "@tailwindcss/postcss": "^4.3.0",
     "@types/bun": "latest",
     "@types/node": "^25.7.0",
     "@types/react": "^19.2.14",
@@ -36,8 +41,8 @@
     "@typescript/native-preview": "latest",
     "eslint": "^10.3.0",
     "eslint-config-next": "16.2.6",
+    "jsonc-parser": "^3.3.1",
     "oxlint": "^1.64.0",
-    "tailwindcss": "^4.3.0",
     "typescript": "^6.0.3"
   },
   "ignoreScripts": [

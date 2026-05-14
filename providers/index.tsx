@@ -1,3 +1,6 @@
+/**
+ * Providers Index public module surface.
+ */
 "use client";
 
 import { Toaster } from "sonner";

@@ -1,3 +1,6 @@
+/**
+ * Components Layout Navbar public module surface.
+ */
 "use client";
 
 import Image from "next/image";

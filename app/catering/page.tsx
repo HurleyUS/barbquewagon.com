@@ -1,3 +1,6 @@
+/**
+ * App Catering Page public module surface.
+ */
 import type { Metadata } from "next";
 import { CateringForm } from "./catering-form";
 import { Check, ArrowRight } from "@phosphor-icons/react/dist/ssr";

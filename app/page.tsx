@@ -1,3 +1,6 @@
+/**
+ * App Page public module surface.
+ */
 import Link from "next/link";
 import Image from "next/image";
 import { Fire, Timer, Heart, MapPin, Clock, ArrowRight } from "@phosphor-icons/react/dist/ssr";

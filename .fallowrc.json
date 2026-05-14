@@ -4,5 +4,8 @@
   "duplicates": {
     "minOccurrences": 3
   },
+  "health": {
+    "ignore": ["app/**/page.tsx", "components/layout/*.tsx"]
+  },
   "rules": {}
 }

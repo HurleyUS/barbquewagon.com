@@ -1,3 +1,6 @@
+/**
+ * Next.config public module surface.
+ */
 import type { NextConfig } from "next";
 
 const nextConfig = {
