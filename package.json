@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "bun scripts/dev-localhost.mjs",
-    "build": "next build",
+    "build": "bun run --bun next build",
     "start": "next start",
     "lint": "bun scripts/lint.mts",
     "dev:raw": "next dev",

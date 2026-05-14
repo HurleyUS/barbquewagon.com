@@ -52,6 +52,9 @@ jobs:
         run: |
           export GZ_OPT="-9"
           tar -czf vercel-output.tgz .vercel/output
+      - name: Prune npm production dependencies
+        if: hashFiles('package-lock.json') != ''
+        run: npm prune --production
       - name: Upload Vercel output artifact
         uses: actions/upload-artifact@v4
         with:
