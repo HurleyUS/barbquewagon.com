@@ -2,7 +2,10 @@ import type { ButtonHTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
 /** Smokehouse-themed shadcn-style button primitive. */
-export function Button({ className, ...props }: ButtonHTMLAttributes<HTMLButtonElement>) {
+export function Button({
+  className,
+  ...props
+}: ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <button
       className={cn(

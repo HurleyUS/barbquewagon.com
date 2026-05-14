@@ -3,14 +3,22 @@
  */
 import Link from "next/link";
 import Image from "next/image";
-import { Fire, Timer, Heart, MapPin, Clock, ArrowRight } from "@phosphor-icons/react/dist/ssr";
+import {
+  Fire,
+  Timer,
+  Heart,
+  MapPin,
+  Clock,
+  ArrowRight,
+} from "@phosphor-icons/react/dist/ssr";
 import { JsonLd } from "@/components/json-ld";
 import { getRestaurantSchema } from "@/lib/structured-data";
 
 const featuredItems = [
   {
     name: "Smoked Brisket",
-    description: "Slow-smoked 14 hours over hickory. Bark so good it should be illegal.",
+    description:
+      "Slow-smoked 14 hours over hickory. Bark so good it should be illegal.",
     price: "$14.99",
     tag: "Fan Favorite",
     image: "/images/food/brisket-plate.jpg",
@@ -25,14 +33,16 @@ const featuredItems = [
   },
   {
     name: "Baby Back Ribs",
-    description: "Fall-off-the-bone tender. Dry rubbed, slow smoked, finished with a glaze.",
+    description:
+      "Fall-off-the-bone tender. Dry rubbed, slow smoked, finished with a glaze.",
     price: "$16.99",
     tag: "Pitmaster Pick",
     image: "/images/food/pork-ribs.jpg",
   },
   {
     name: "Smoked Turkey",
-    description: "Half pound of tender smoked turkey breast, served with your choice of sides.",
+    description:
+      "Half pound of tender smoked turkey breast, served with your choice of sides.",
     price: "$13.99",
     tag: "House Special",
     image: "/images/food/smoked-turkey.jpg",
@@ -42,10 +52,16 @@ const featuredItems = [
 const galleryImages = [
   { src: "/images/food/ribs-brisket.jpg", alt: "Ribs and brisket combo plate" },
   { src: "/images/food/combo-platter.jpg", alt: "BBQ combo platter" },
-  { src: "/images/food/beef-sandwich-plate.jpg", alt: "BBQ beef sandwich with fries" },
+  {
+    src: "/images/food/beef-sandwich-plate.jpg",
+    alt: "BBQ beef sandwich with fries",
+  },
   { src: "/images/exterior/building-3.jpg", alt: "Bar-B-Que Wagon exterior" },
   { src: "/images/food/chicken-pork-plate.jpg", alt: "Chicken and pork plate" },
-  { src: "/images/food/pork-sandwich-fries.jpg", alt: "Pork sandwich with fries" },
+  {
+    src: "/images/food/pork-sandwich-fries.jpg",
+    alt: "Pork sandwich with fries",
+  },
 ];
 
 const values = [
@@ -133,8 +149,9 @@ export default function HomePage() {
 
             {/* Sub copy */}
             <p className="animate-fade-up animate-delay-200 mt-8 max-w-xl text-lg leading-relaxed text-foreground-muted">
-              Real hickory-smoked barbecue made the old-fashioned way — low, slow, and with love. No
-              shortcuts. No compromises. Just meat, wood, fire, and time.
+              Real hickory-smoked barbecue made the old-fashioned way — low,
+              slow, and with love. No shortcuts. No compromises. Just meat,
+              wood, fire, and time.
             </p>
 
             {/* CTAs */}
@@ -192,8 +209,9 @@ export default function HomePage() {
               What We&apos;re Smoking
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-foreground-muted">
-              Every plate comes with your choice of two sides and a slice of fresh-baked cornbread.
-              All meats smoked daily — when it&apos;s gone, it&apos;s gone.
+              Every plate comes with your choice of two sides and a slice of
+              fresh-baked cornbread. All meats smoked daily — when it&apos;s
+              gone, it&apos;s gone.
             </p>
           </div>
 
@@ -232,7 +250,9 @@ export default function HomePage() {
                     <span className="font-display text-2xl font-bold text-accent">
                       {item.price}
                     </span>
-                    <span className="text-xs text-foreground-muted/60">plate w/ 2 sides</span>
+                    <span className="text-xs text-foreground-muted/60">
+                      plate w/ 2 sides
+                    </span>
                   </div>
                 </div>
 
@@ -276,7 +296,11 @@ export default function HomePage() {
             {values.map((value) => (
               <div key={value.title} className="text-center">
                 <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-lg bg-accent/10">
-                  <value.icon size={28} weight="light" className="text-accent" />
+                  <value.icon
+                    size={28}
+                    weight="light"
+                    className="text-accent"
+                  />
                 </div>
                 <h3 className="mt-6 font-display text-lg font-bold text-foreground-strong">
                   {value.title}
@@ -344,15 +368,17 @@ export default function HomePage() {
               </h2>
               <div className="mt-6 space-y-4 text-foreground-muted">
                 <p className="leading-relaxed">
-                  For over 20 years, Pat Monteith has been tending fires before dawn on Main Street
-                  in Bryson City, turning wood into flavor and patience into plates worth waiting
-                  for. What started with a simple smoker has become a beloved destination in the
-                  heart of the Great Smoky Mountains.
+                  For over 20 years, Pat Monteith has been tending fires before
+                  dawn on Main Street in Bryson City, turning wood into flavor
+                  and patience into plates worth waiting for. What started with
+                  a simple smoker has become a beloved destination in the heart
+                  of the Great Smoky Mountains.
                 </p>
                 <p className="leading-relaxed">
-                  We don&apos;t take shortcuts. We don&apos;t rush the process. Every brisket gets
-                  its full 14 hours. Every rack of ribs earns its bark. That&apos;s not a slogan —
-                  it&apos;s a promise we make every single morning at 4am when we light the pit.
+                  We don&apos;t take shortcuts. We don&apos;t rush the process.
+                  Every brisket gets its full 14 hours. Every rack of ribs earns
+                  its bark. That&apos;s not a slogan — it&apos;s a promise we
+                  make every single morning at 4am when we light the pit.
                 </p>
               </div>
               <Link
@@ -369,25 +395,40 @@ export default function HomePage() {
               <div className="absolute inset-0 grain" />
               <div className="relative space-y-6">
                 <blockquote className="font-display text-2xl leading-snug font-medium text-foreground-strong italic">
-                  &ldquo;Good barbecue isn&apos;t made in a kitchen. It&apos;s made outside, next to
-                  the fire, with your hands and your patience.&rdquo;
+                  &ldquo;Good barbecue isn&apos;t made in a kitchen. It&apos;s
+                  made outside, next to the fire, with your hands and your
+                  patience.&rdquo;
                 </blockquote>
                 <div className="flex items-center gap-3">
                   <div className="h-px flex-1 bg-border" />
-                  <span className="text-sm text-accent">Pat Monteith, Pitmaster</span>
+                  <span className="text-sm text-accent">
+                    Pat Monteith, Pitmaster
+                  </span>
                 </div>
                 <div className="grid grid-cols-3 gap-6 pt-4">
                   <div className="text-center">
-                    <p className="font-display text-3xl font-bold text-accent">20+</p>
-                    <p className="mt-1 text-xs text-foreground-muted">Years Smoking</p>
+                    <p className="font-display text-3xl font-bold text-accent">
+                      20+
+                    </p>
+                    <p className="mt-1 text-xs text-foreground-muted">
+                      Years Smoking
+                    </p>
                   </div>
                   <div className="text-center">
-                    <p className="font-display text-3xl font-bold text-accent">4am</p>
-                    <p className="mt-1 text-xs text-foreground-muted">Fires Lit Daily</p>
+                    <p className="font-display text-3xl font-bold text-accent">
+                      4am
+                    </p>
+                    <p className="mt-1 text-xs text-foreground-muted">
+                      Fires Lit Daily
+                    </p>
                   </div>
                   <div className="text-center">
-                    <p className="font-display text-3xl font-bold text-accent">14hr</p>
-                    <p className="mt-1 text-xs text-foreground-muted">Brisket Smoke</p>
+                    <p className="font-display text-3xl font-bold text-accent">
+                      14hr
+                    </p>
+                    <p className="mt-1 text-xs text-foreground-muted">
+                      Brisket Smoke
+                    </p>
                   </div>
                 </div>
               </div>
@@ -410,7 +451,8 @@ export default function HomePage() {
               Hours &amp; Location
             </h2>
             <p className="mt-4 text-foreground-muted">
-              We&apos;re on Main Street in Bryson City — in the heart of the Great Smoky Mountains.
+              We&apos;re on Main Street in Bryson City — in the heart of the
+              Great Smoky Mountains.
             </p>
           </div>
 
@@ -418,19 +460,29 @@ export default function HomePage() {
             {/* Hours card */}
             <div className="rounded-lg border border-border bg-card-bg p-8 text-center">
               <Clock size={28} weight="light" className="mx-auto text-accent" />
-              <h3 className="mt-4 font-display text-lg font-bold text-foreground-strong">Hours</h3>
+              <h3 className="mt-4 font-display text-lg font-bold text-foreground-strong">
+                Hours
+              </h3>
               <div className="mt-4 space-y-2 text-sm text-foreground-muted">
                 <p>Tuesday - Saturday</p>
-                <p className="font-semibold text-foreground">11:00 AM - 8:00 PM</p>
+                <p className="font-semibold text-foreground">
+                  11:00 AM - 8:00 PM
+                </p>
                 <p className="mt-3">Sunday</p>
-                <p className="font-semibold text-foreground">11:00 AM - 6:00 PM</p>
+                <p className="font-semibold text-foreground">
+                  11:00 AM - 6:00 PM
+                </p>
                 <p className="mt-3 text-foreground-muted/60">Closed Monday</p>
               </div>
             </div>
 
             {/* Location card */}
             <div className="rounded-lg border border-border bg-card-bg p-8 text-center">
-              <MapPin size={28} weight="light" className="mx-auto text-accent" />
+              <MapPin
+                size={28}
+                weight="light"
+                className="mx-auto text-accent"
+              />
               <h3 className="mt-4 font-display text-lg font-bold text-foreground-strong">
                 Location
               </h3>
@@ -458,7 +510,10 @@ export default function HomePage() {
               </h3>
               <div className="mt-4 space-y-2 text-sm text-foreground-muted">
                 <p>
-                  <a href="tel:+18284889521" className="transition-colors hover:text-accent">
+                  <a
+                    href="tel:+18284889521"
+                    className="transition-colors hover:text-accent"
+                  >
                     (828) 488-9521
                   </a>
                 </p>
@@ -495,8 +550,9 @@ export default function HomePage() {
             Your Next Great Meal Is&nbsp;Waiting
           </h2>
           <p className="mt-6 text-lg text-foreground-muted">
-            Whether it&apos;s a weekday lunch, a weekend family feast, or catering for your biggest
-            event — we&apos;ve got the smoke, the sides, and the soul to make it unforgettable.
+            Whether it&apos;s a weekday lunch, a weekend family feast, or
+            catering for your biggest event — we&apos;ve got the smoke, the
+            sides, and the soul to make it unforgettable.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Link

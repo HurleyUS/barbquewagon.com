@@ -13,7 +13,9 @@ type LeadInput = {
   type: "catering" | "contact";
 };
 
-const createLead = makeFunctionReference<"mutation", LeadInput, string>("leads:create");
+const createLead = makeFunctionReference<"mutation", LeadInput, string>(
+  "leads:create",
+);
 
 /** Persists a lead when Convex is configured for this deployment. */
 export async function saveLead(lead: LeadInput) {

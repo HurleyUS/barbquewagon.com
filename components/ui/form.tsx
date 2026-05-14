@@ -14,9 +14,10 @@ import {
 export const Form = FormProvider;
 
 /** Binds a controlled field to the nearest `Form` provider. */
-export function FormField<TFieldValues extends FieldValues, TName extends FieldPath<TFieldValues>>(
-  props: Omit<ControllerProps<TFieldValues, TName>, "control">,
-) {
+export function FormField<
+  TFieldValues extends FieldValues,
+  TName extends FieldPath<TFieldValues>,
+>(props: Omit<ControllerProps<TFieldValues, TName>, "control">) {
   const { control } = useFormContext<TFieldValues>();
   return <Controller control={control} {...props} />;
 }
@@ -27,9 +28,18 @@ export function FormItem({ children }: { children: ReactNode }) {
 }
 
 /** Labels a form control. */
-export function FormLabel({ children, htmlFor }: { children: ReactNode; htmlFor: string }) {
+export function FormLabel({
+  children,
+  htmlFor,
+}: {
+  children: ReactNode;
+  htmlFor: string;
+}) {
   return (
-    <label htmlFor={htmlFor} className="mb-1.5 block text-sm font-medium text-foreground-muted">
+    <label
+      htmlFor={htmlFor}
+      className="mb-1.5 block text-sm font-medium text-foreground-muted"
+    >
       {children}
     </label>
   );

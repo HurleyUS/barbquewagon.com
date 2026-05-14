@@ -93,10 +93,28 @@ export function CateringForm() {
             placeholder="you@example.com"
             type="email"
           />
-          <TextField name="phone" label="Phone Number" placeholder="(828) 555-0000" type="tel" />
-          <TextField name="date" label="Event Date" placeholder="" type="date" />
-          <SelectField name="guests" label="Estimated Guest Count" options={guestOptions} />
-          <SelectField name="eventType" label="Event Type" options={eventTypeOptions} />
+          <TextField
+            name="phone"
+            label="Phone Number"
+            placeholder="(828) 555-0000"
+            type="tel"
+          />
+          <TextField
+            name="date"
+            label="Event Date"
+            placeholder=""
+            type="date"
+          />
+          <SelectField
+            name="guests"
+            label="Estimated Guest Count"
+            options={guestOptions}
+          />
+          <SelectField
+            name="eventType"
+            label="Event Type"
+            options={eventTypeOptions}
+          />
           <MessageField />
         </div>
         <div className="mt-6 flex justify-end">
@@ -132,7 +150,12 @@ function TextField(props: {
         <FormItem>
           <FormLabel htmlFor={id}>{props.label}</FormLabel>
           <FormControl>
-            <Input id={id} placeholder={props.placeholder} type={props.type ?? "text"} {...field} />
+            <Input
+              id={id}
+              placeholder={props.placeholder}
+              type={props.type ?? "text"}
+              {...field}
+            />
           </FormControl>
           <FormMessage message={fieldState.error?.message} />
         </FormItem>
@@ -141,7 +164,11 @@ function TextField(props: {
   );
 }
 
-function SelectField(props: { label: string; name: "eventType" | "guests"; options: string[][] }) {
+function SelectField(props: {
+  label: string;
+  name: "eventType" | "guests";
+  options: string[][];
+}) {
   const id = `catering-${props.name}`;
   return (
     <FormField<CateringFormData, typeof props.name>
@@ -173,7 +200,9 @@ function MessageField() {
         name="message"
         render={({ field, fieldState }) => (
           <FormItem>
-            <FormLabel htmlFor="catering-message">Tell Us About Your Event</FormLabel>
+            <FormLabel htmlFor="catering-message">
+              Tell Us About Your Event
+            </FormLabel>
             <FormControl>
               <Textarea
                 id="catering-message"

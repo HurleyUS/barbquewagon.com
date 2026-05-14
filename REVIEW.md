@@ -5,21 +5,19 @@
 Resolving dependencies
 Resolved, downloaded and extracted [2]
 Saved lockfile
+
 ## Vital Signs
 
-| Metric | Value |
-|:-------|------:|
-| Total LOC | 1834 |
-| Avg Cyclomatic | 1.5 |
-| P90 Cyclomatic | 2 |
-| Dead Files | 0.0% |
-| Dead Exports | 0.0% |
-| Maintainability (avg) | 96.1 |
-| Circular Deps | 0 |
-| Unused Deps | 0 |
-
-
-
+| Metric                | Value |
+| :-------------------- | ----: |
+| Total LOC             |  1834 |
+| Avg Cyclomatic        |   1.5 |
+| P90 Cyclomatic        |     2 |
+| Dead Files            |  0.0% |
+| Dead Exports          |  0.0% |
+| Maintainability (avg) |  96.1 |
+| Circular Deps         |     0 |
+| Unused Deps           |     0 |
 
 ## AUDIT
 
@@ -30,15 +28,13 @@ Saved lockfile
 Audit scope: 1 changed file vs main (6a654f5..HEAD)
 ✓ No issues in 1 changed file (0.23s)
 
-
 ## DEAD
 
 Resolving dependencies
 Resolved, downloaded and extracted [2]
 Saved lockfile
+
 ## Fallow: no issues found
-
-
 
 ## DUPLICATION
 
@@ -46,11 +42,9 @@ Resolving dependencies
 Resolved, downloaded and extracted [2]
 Saved lockfile
 note: hid 8 clone groups below minOccurrences=3 (lower --min-occurrences to see them)
+
 ## Fallow: no code duplication found
-
-
 
 ## DOCSTRINGS
 
 ✔︎ 100% docstring coverage
-

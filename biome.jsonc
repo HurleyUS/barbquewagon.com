@@ -14,13 +14,17 @@
       "!bun.lock",
       "!tsconfig.tsbuildinfo",
       "!next-env.d.ts",
-      "!convex/_generated"
-    ]
+      "!convex/_generated",
+    ],
   },
   "formatter": { "enabled": true, "indentStyle": "space", "lineWidth": 100 },
   "css": { "parser": { "tailwindDirectives": true } },
   "linter": { "enabled": true, "rules": { "recommended": true } },
   "javascript": {
-    "formatter": { "quoteStyle": "double", "semicolons": "always", "trailingCommas": "all" }
-  }
+    "formatter": {
+      "quoteStyle": "double",
+      "semicolons": "always",
+      "trailingCommas": "all",
+    },
+  },
 }

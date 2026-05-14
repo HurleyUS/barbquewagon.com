@@ -20,7 +20,10 @@ import { useFormStatusStore } from "@/stores/form-status";
 
 const contactSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
-  message: z.string().min(10, "Message must be at least 10 characters").max(2000),
+  message: z
+    .string()
+    .min(10, "Message must be at least 10 characters")
+    .max(2000),
   name: z.string().min(2, "Name must be at least 2 characters").max(100),
   phone: z.string().optional(),
   subject: z.string().min(1, "Please select a subject"),
@@ -73,7 +76,9 @@ export function ContactForm() {
         onSubmit={form.handleSubmit(onSubmit)}
         className="rounded-lg border border-border bg-card-bg p-6 sm:p-8"
       >
-        <h2 className="font-display text-xl font-bold text-foreground-strong">Send Us a Message</h2>
+        <h2 className="font-display text-xl font-bold text-foreground-strong">
+          Send Us a Message
+        </h2>
         <p className="mt-1 text-sm text-foreground-muted">
           We will get back to you within one business day.
         </p>
@@ -85,8 +90,17 @@ export function ContactForm() {
             placeholder="you@example.com"
             type="email"
           />
-          <TextField name="phone" label="Phone Number" placeholder="(828) 555-0000" type="tel" />
-          <SelectField name="subject" label="Subject" options={subjectOptions} />
+          <TextField
+            name="phone"
+            label="Phone Number"
+            placeholder="(828) 555-0000"
+            type="tel"
+          />
+          <SelectField
+            name="subject"
+            label="Subject"
+            options={subjectOptions}
+          />
           <MessageField />
         </div>
         <div className="mt-6 flex justify-end">
@@ -122,7 +136,12 @@ function TextField(props: {
         <FormItem>
           <FormLabel htmlFor={id}>{props.label}</FormLabel>
           <FormControl>
-            <Input id={id} placeholder={props.placeholder} type={props.type ?? "text"} {...field} />
+            <Input
+              id={id}
+              placeholder={props.placeholder}
+              type={props.type ?? "text"}
+              {...field}
+            />
           </FormControl>
           <FormMessage message={fieldState.error?.message} />
         </FormItem>
@@ -131,7 +150,11 @@ function TextField(props: {
   );
 }
 
-function SelectField(props: { label: string; name: "subject"; options: string[][] }) {
+function SelectField(props: {
+  label: string;
+  name: "subject";
+  options: string[][];
+}) {
   const id = `contact-${props.name}`;
   return (
     <FormField<ContactFormData, typeof props.name>

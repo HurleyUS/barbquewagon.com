@@ -20,7 +20,8 @@ async function exec(command: string, args: string[]) {
     stderr: "inherit",
     stdout: "inherit",
   }).exited;
-  if (exitCode !== 0) throw new Error(`${command} ${args.join(" ")} exited ${exitCode}`);
+  if (exitCode !== 0)
+    throw new Error(`${command} ${args.join(" ")} exited ${exitCode}`);
 }
 
 async function capture(command: string, args: string[]) {
@@ -40,7 +41,14 @@ async function capture(command: string, args: string[]) {
 }
 
 async function repoName() {
-  return capture("gh", ["repo", "view", "--json", "nameWithOwner", "--jq", ".nameWithOwner"]);
+  return capture("gh", [
+    "repo",
+    "view",
+    "--json",
+    "nameWithOwner",
+    "--jq",
+    ".nameWithOwner",
+  ]);
 }
 
 async function branchName() {
@@ -49,7 +57,15 @@ async function branchName() {
 
 async function setupSecrets(repo: string) {
   const project = JSON.parse(await readFile(".vercel/project.json", "utf8"));
-  await exec("gh", ["secret", "set", "VERCEL_ORG_ID", "--repo", repo, "--body", project.orgId]);
+  await exec("gh", [
+    "secret",
+    "set",
+    "VERCEL_ORG_ID",
+    "--repo",
+    repo,
+    "--body",
+    project.orgId,
+  ]);
   await exec("gh", [
     "secret",
     "set",
@@ -68,6 +84,15 @@ if (values.help) {
   const branch = await branchName();
   if (values.setup) await setupSecrets(repo);
   await exec("git", ["push", "origin", branch]);
-  await exec("gh", ["workflow", "run", "ship.yml", "--repo", repo, "--ref", branch]);
-  if (!values["no-watch"]) await exec("gh", ["run", "watch", "--repo", repo, "--exit-status"]);
+  await exec("gh", [
+    "workflow",
+    "run",
+    "ship.yml",
+    "--repo",
+    repo,
+    "--ref",
+    branch,
+  ]);
+  if (!values["no-watch"])
+    await exec("gh", ["run", "watch", "--repo", repo, "--exit-status"]);
 }

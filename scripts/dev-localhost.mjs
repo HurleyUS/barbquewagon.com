@@ -13,7 +13,13 @@ import { getDevLocalhostInfo } from "./dev-localhost-info.mjs";
 export function startDevLocalhost(cwd = process.cwd()) {
   const { host, port, url, slug } = getDevLocalhostInfo(cwd);
   const caddyfilePath = path.join(os.homedir(), ".local", "etc", "Caddyfile");
-  const snippetsDir = path.join(os.homedir(), ".local", "etc", "caddy", "dev-sites");
+  const snippetsDir = path.join(
+    os.homedir(),
+    ".local",
+    "etc",
+    "caddy",
+    "dev-sites",
+  );
   const snippetPath = path.join(snippetsDir, `${slug}.caddy`);
   mkdirSync(path.dirname(caddyfilePath), { recursive: true });
   mkdirSync(snippetsDir, { recursive: true });
@@ -24,7 +30,10 @@ export function startDevLocalhost(cwd = process.cwd()) {
   const child = spawn(
     path.join(cwd, "node_modules", ".bin", "next"),
     ["dev", "--hostname", "127.0.0.1", "--port", String(port)],
-    { stdio: "inherit", env: { ...process.env, DEV_HOST: host, DEV_URL: url, PORT: String(port) } },
+    {
+      stdio: "inherit",
+      env: { ...process.env, DEV_HOST: host, DEV_URL: url, PORT: String(port) },
+    },
   );
   child.on("exit", (code, signal) =>
     signal ? process.kill(process.pid, signal) : process.exit(code ?? 0),
