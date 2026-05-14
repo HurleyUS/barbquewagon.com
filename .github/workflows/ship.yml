@@ -48,8 +48,6 @@ jobs:
         run: |
           export GZ_OPT="-9"
           bunx --bun vercel build --prod --token="$VERCEL_TOKEN"
-      - name: Prune production dependencies
-        run: bun prune --production
       - name: Archive Vercel output
         run: |
           export GZ_OPT="-9"
