@@ -60,4 +60,4 @@ jobs:
           if-no-files-found: error
           retention-days: 7
       - name: Deploy prebuilt output
-        run: bunx --bun vercel deploy --prebuilt --prod --archive=tgz --yes --token="$VERCEL_TOKEN"
+        run: bunx --bun vercel deploy --prebuilt --prod --yes --token="$VERCEL_TOKEN"
