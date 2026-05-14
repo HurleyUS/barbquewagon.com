@@ -28,8 +28,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Invalid form data" }, { status: 400 });
     }
 
-    const { name, email, phone, date, guests, eventType, message } =
-      result.data;
+    const { name, email, phone, date, guests, eventType, message } = result.data;
 
     await getResend().emails.send({
       from: FROM_EMAIL,
@@ -50,9 +49,6 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Catering form error:", error);
-    return NextResponse.json(
-      { error: "Failed to submit inquiry" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to submit inquiry" }, { status: 500 });
   }
 }

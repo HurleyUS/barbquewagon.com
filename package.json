@@ -6,13 +6,13 @@
     "dev": "bun scripts/dev-localhost.mjs",
     "build": "next build",
     "start": "next start",
-    "lint": "bun scripts/biome-lint.mjs",
+    "lint": "bun scripts/lint.mts",
     "dev:raw": "next dev",
     "dev:info": "bun scripts/dev-localhost-info.mjs",
     "tsc": "tsgo --noEmit",
     "typecheck": "tsgo --noEmit",
-    "lint:fix": "bun scripts/biome-lint.mjs --fix",
-    "check": "bun tsc && bun lint",
+    "lint:fix": "bun scripts/lint.mts",
+    "check": "bun lint",
     "test": "bun test",
     "format": "biome format --write .",
     "ship": "bun scripts/ship.mts"
@@ -27,17 +27,18 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@biomejs/biome": "latest",
     "@tailwindcss/postcss": "^4.3.0",
+    "@types/bun": "latest",
     "@types/node": "^25.7.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "@typescript/native-preview": "latest",
     "eslint": "^10.3.0",
     "eslint-config-next": "16.2.6",
+    "oxlint": "^1.64.0",
     "tailwindcss": "^4.3.0",
-    "typescript": "^6.0.3",
-    "@biomejs/biome": "latest",
-    "@types/bun": "latest",
-    "@typescript/native-preview": "latest"
+    "typescript": "^6.0.3"
   },
   "ignoreScripts": [
     "sharp",

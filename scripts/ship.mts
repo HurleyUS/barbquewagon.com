@@ -18,7 +18,7 @@ if (values.help) {
   process.exit(0);
 }
 
-async function run(cmd, args, opts = {}) {
+async function run(cmd: string, args: string[], opts: { capture?: boolean } = {}) {
   const proc = Bun.spawn([cmd, ...args], {
     cwd: process.cwd(),
     env: process.env,
@@ -30,23 +30,43 @@ async function run(cmd, args, opts = {}) {
     opts.capture ? new Response(proc.stderr).text() : "",
     proc.exited,
   ]);
-  if (exitCode !== 0) throw new Error(stderr.trim() || `${cmd} ${args.join(" ")} exited ${exitCode}`);
+  if (exitCode !== 0)
+    throw new Error(stderr.trim() || `${cmd} ${args.join(" ")} exited ${exitCode}`);
   return stdout.trim();
 }
 
 async function repoName() {
-  return run("gh", ["repo", "view", "--json", "nameWithOwner", "--jq", ".nameWithOwner"], { capture: true });
+  return run("gh", ["repo", "view", "--json", "nameWithOwner", "--jq", ".nameWithOwner"], {
+    capture: true,
+  });
 }
 
 async function branchName() {
   return values.branch ?? run("git", ["branch", "--show-current"], { capture: true });
 }
 
-async function setupSecrets(repo) {
+async function setupSecrets(repo: string) {
   const project = JSON.parse(await readFile(".vercel/project.json", "utf8"));
   await run("gh", ["secret", "set", "VERCEL_ORG_ID", "--repo", repo, "--body", project.orgId]);
-  await run("gh", ["secret", "set", "VERCEL_PROJECT_ID", "--repo", repo, "--body", project.projectId]);
-  if (process.env.VERCEL_TOKEN) await run("gh", ["secret", "set", "VERCEL_TOKEN", "--repo", repo, "--body", process.env.VERCEL_TOKEN]);
+  await run("gh", [
+    "secret",
+    "set",
+    "VERCEL_PROJECT_ID",
+    "--repo",
+    repo,
+    "--body",
+    project.projectId,
+  ]);
+  if (process.env.VERCEL_TOKEN)
+    await run("gh", [
+      "secret",
+      "set",
+      "VERCEL_TOKEN",
+      "--repo",
+      repo,
+      "--body",
+      process.env.VERCEL_TOKEN,
+    ]);
 }
 
 const repo = await repoName();

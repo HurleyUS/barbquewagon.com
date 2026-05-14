@@ -25,8 +25,7 @@ const errorClasses = "text-xs text-red-500 mt-1";
 export function CateringForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
-  const [errors, setErrors] =
-    useState<Partial<Record<keyof CateringFormData, string>>>();
+  const [errors, setErrors] = useState<Partial<Record<keyof CateringFormData, string>>>();
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -69,7 +68,7 @@ export function CateringForm() {
     } catch (err) {
       console.error("Catering form submission error:", err);
       setSubmitError(
-        "Something went wrong submitting your inquiry. Please try again or call us directly at (828) 269-8280."
+        "Something went wrong submitting your inquiry. Please try again or call us directly at (828) 269-8280.",
       );
       toast.error("Failed to submit inquiry. Please try again.");
     } finally {
@@ -78,10 +77,7 @@ export function CateringForm() {
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="rounded-lg border border-border bg-card-bg p-6 sm:p-8"
-    >
+    <form onSubmit={handleSubmit} className="rounded-lg border border-border bg-card-bg p-6 sm:p-8">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="catering-name" className={labelClasses}>
@@ -228,10 +224,7 @@ export function CateringForm() {
       </div>
 
       {submitError && (
-        <p
-          className="mt-4 rounded-md bg-red-50 px-4 py-3 text-sm text-red-600"
-          role="alert"
-        >
+        <p className="mt-4 rounded-md bg-red-50 px-4 py-3 text-sm text-red-600" role="alert">
           {submitError}
         </p>
       )}

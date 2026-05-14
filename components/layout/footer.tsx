@@ -1,11 +1,5 @@
 import Link from "next/link";
-import {
-  Phone,
-  MapPin,
-  Clock,
-  FacebookLogo,
-  InstagramLogo,
-} from "@phosphor-icons/react/dist/ssr";
+import { Phone, MapPin, Clock, FacebookLogo, InstagramLogo } from "@phosphor-icons/react/dist/ssr";
 
 export function Footer() {
   return (
@@ -19,17 +13,15 @@ export function Footer() {
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded bg-accent">
-                <span className="font-display text-lg font-bold text-charcoal">
-                  B
-                </span>
+                <span className="font-display text-lg font-bold text-charcoal">B</span>
               </div>
               <span className="font-display text-xl font-bold text-foreground-strong">
                 Bar-B-Que Wagon
               </span>
             </div>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-foreground-muted">
-              Slow smoked over real hickory wood. No shortcuts. No compromises.
-              Just honest barbecue made the way it was meant to be.
+              Slow smoked over real hickory wood. No shortcuts. No compromises. Just honest barbecue
+              made the way it was meant to be.
             </p>
             <div className="mt-6 flex gap-4">
               <a
@@ -107,10 +99,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={16} weight="light" className="shrink-0 text-accent" />
-                <a
-                  href="tel:+18284889521"
-                  className="transition-colors hover:text-accent"
-                >
+                <a href="tel:+18284889521" className="transition-colors hover:text-accent">
                   (828) 488-9521
                 </a>
               </li>

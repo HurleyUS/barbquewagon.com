@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -29,10 +30,15 @@ export function Navbar() {
           className="flex items-center gap-3 transition-opacity hover:opacity-80"
           aria-label="Bar-B-Que Wagon — Home"
         >
-          <div className="flex h-10 w-10 items-center justify-center rounded bg-accent">
-            <span className="font-display text-lg font-bold text-charcoal">
-              B
-            </span>
+          <div className="flex h-12 w-12 items-center justify-center rounded-md bg-warm-white p-1.5">
+            <Image
+              src="/logo.svg"
+              alt=""
+              width={40}
+              height={40}
+              className="h-full w-full object-contain"
+              priority
+            />
           </div>
           <div className="flex flex-col">
             <span className="font-display text-lg leading-tight font-bold tracking-wide text-foreground-strong">

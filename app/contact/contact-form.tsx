@@ -9,10 +9,7 @@ const contactSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
   phone: z.string().optional(),
   subject: z.string().min(1, "Please select a subject"),
-  message: z
-    .string()
-    .min(10, "Message must be at least 10 characters")
-    .max(2000),
+  message: z.string().min(10, "Message must be at least 10 characters").max(2000),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -26,8 +23,7 @@ const errorClasses = "text-xs text-red-500 mt-1";
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
-  const [errors, setErrors] =
-    useState<Partial<Record<keyof ContactFormData, string>>>();
+  const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>();
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -68,7 +64,7 @@ export function ContactForm() {
     } catch (err) {
       console.error("Contact form submission error:", err);
       setSubmitError(
-        "Something went wrong sending your message. Please try again or call us directly."
+        "Something went wrong sending your message. Please try again or call us directly.",
       );
       toast.error("Failed to send message. Please try again.");
     } finally {
@@ -77,13 +73,8 @@ export function ContactForm() {
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="rounded-lg border border-border bg-card-bg p-6 sm:p-8"
-    >
-      <h2 className="font-display text-xl font-bold text-foreground-strong">
-        Send Us a Message
-      </h2>
+    <form onSubmit={handleSubmit} className="rounded-lg border border-border bg-card-bg p-6 sm:p-8">
+      <h2 className="font-display text-xl font-bold text-foreground-strong">Send Us a Message</h2>
       <p className="mt-1 text-sm text-foreground-muted">
         We will get back to you within one business day.
       </p>

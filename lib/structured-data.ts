@@ -62,7 +62,7 @@ export function getRestaurantSchema() {
     menu: `${b.url}/menu`,
     acceptsReservations: "False",
     hasMap: `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-      `${b.address.street} ${b.address.city} ${b.address.state} ${b.address.zip}`
+      `${b.address.street} ${b.address.city} ${b.address.state} ${b.address.zip}`,
     )}`,
   };
 }
@@ -82,7 +82,11 @@ export function getMenuSchema() {
         menuItem("Smoked Brisket", "Slow-smoked 14 hours over hickory.", "14.99"),
         menuItem("Pulled Pork", "Hand-pulled Carolina-style with house vinegar sauce.", "12.99"),
         menuItem("Baby Back Ribs", "Fall-off-the-bone tender, dry rubbed, slow smoked.", "16.99"),
-        menuItem("Smoked Turkey", "Half pound of tender smoked turkey breast with two sides.", "13.99"),
+        menuItem(
+          "Smoked Turkey",
+          "Half pound of tender smoked turkey breast with two sides.",
+          "13.99",
+        ),
       ],
     },
   };

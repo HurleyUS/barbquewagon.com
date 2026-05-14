@@ -106,9 +106,8 @@ export default function CateringPage() {
               Feed Your People Right
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-foreground-muted">
-              From backyard parties to corporate events, we bring the same
-              slow-smoked quality that made our restaurant famous — right to your
-              venue. No heat lamps, no compromises.
+              From backyard parties to corporate events, we bring the same slow-smoked quality that
+              made our restaurant famous — right to your venue. No heat lamps, no compromises.
             </p>
           </div>
         </div>
@@ -161,11 +160,7 @@ export default function CateringPage() {
                         key={item}
                         className="flex items-start gap-2 text-sm text-foreground-muted"
                       >
-                        <Check
-                          size={14}
-                          weight="bold"
-                          className="mt-0.5 shrink-0 text-accent"
-                        />
+                        <Check size={14} weight="bold" className="mt-0.5 shrink-0 text-accent" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -191,10 +186,7 @@ export default function CateringPage() {
       </section>
 
       {/* Catering Inquiry Form — 2-column layout */}
-      <section
-        id="catering-form"
-        className="relative bg-background-secondary py-24 lg:py-32"
-      >
+      <section id="catering-form" className="relative bg-background-secondary py-24 lg:py-32">
         <div className="absolute inset-0 grain" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-5 lg:gap-16">
@@ -207,9 +199,8 @@ export default function CateringPage() {
                 Request a Catering Quote
               </h2>
               <p className="mt-4 leading-relaxed text-foreground-muted">
-                Tell us about your event and we will put together a custom quote
-                within 24 hours. No obligation, no pressure — just good food
-                planning.
+                Tell us about your event and we will put together a custom quote within 24 hours. No
+                obligation, no pressure — just good food planning.
               </p>
               <div className="mt-8 space-y-4 text-sm text-foreground-muted">
                 <div className="flex items-start gap-3">
