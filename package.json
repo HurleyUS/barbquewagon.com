@@ -20,9 +20,11 @@
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
     "@phosphor-icons/react": "^2.1.10",
+    "@sentry/nextjs": "^10.53.1",
     "@tailwindcss/postcss": "^4.3.0",
     "convex": "^1.38.0",
     "next": "16.2.6",
+    "posthog-js": "^1.373.4",
     "react": "19.2.6",
     "react-dom": "19.2.6",
     "react-hook-form": "^7.75.0",

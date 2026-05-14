@@ -1,6 +1,7 @@
 /**
  * Next.config public module surface.
  */
+import { withSentryConfig } from "@sentry/nextjs";
 import type { NextConfig } from "next";
 
 const nextConfig = {
@@ -16,4 +17,8 @@ const nextConfig = {
   },
 } as NextConfig;
 
-export default nextConfig;
+export default withSentryConfig(nextConfig, {
+  org: process.env.SENTRY_ORG,
+  project: process.env.SENTRY_PROJECT || "barbquewagon-com",
+  silent: true,
+});
