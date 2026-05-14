@@ -6,7 +6,7 @@
     "dev": "bun scripts/dev-localhost.mjs",
     "build": "bun run --bun next build",
     "start": "next start",
-    "lint": "bunx --bun @biomejs/biome lint . --only=correctness --diagnostic-level=error --max-diagnostics=200",
+    "lint": "bunx --bun oxlint . --quiet",
     "dev:raw": "next dev",
     "dev:info": "bun scripts/dev-localhost-info.mjs",
     "tsc": "tsgo --noEmit",
