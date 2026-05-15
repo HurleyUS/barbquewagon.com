@@ -2,13 +2,7 @@
  * Components Layout Footer public module surface.
  */
 import Link from "next/link";
-import {
-  Phone,
-  MapPin,
-  Clock,
-  FacebookLogo,
-  InstagramLogo,
-} from "@phosphor-icons/react/dist/ssr";
+import { Phone, MapPin, Clock, FacebookLogo, InstagramLogo } from "@phosphor-icons/react/dist/ssr";
 
 export function Footer() {
   return (
@@ -22,17 +16,15 @@ export function Footer() {
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded bg-accent">
-                <span className="font-display text-lg font-bold text-charcoal">
-                  B
-                </span>
+                <span className="font-display text-lg font-bold text-charcoal">B</span>
               </div>
               <span className="font-display text-xl font-bold text-foreground-strong">
                 Bar-B-Que Wagon
               </span>
             </div>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-foreground-muted">
-              Slow smoked over real hickory wood. No shortcuts. No compromises.
-              Just honest barbecue made the way it was meant to be.
+              Slow smoked over real hickory wood. No shortcuts. No compromises. Just honest barbecue
+              made the way it was meant to be.
             </p>
             <div className="mt-6 flex gap-4">
               <a
@@ -85,11 +77,7 @@ export function Footer() {
             </h3>
             <ul className="mt-4 space-y-3 text-sm text-foreground-muted">
               <li className="flex items-start gap-2">
-                <Clock
-                  size={16}
-                  weight="light"
-                  className="mt-0.5 shrink-0 text-accent"
-                />
+                <Clock size={16} weight="light" className="mt-0.5 shrink-0 text-accent" />
                 <div>
                   <p>Tues - Sat: 11am - 8pm</p>
                   <p>Sunday: 11am - 6pm</p>
@@ -106,26 +94,15 @@ export function Footer() {
             </h3>
             <ul className="mt-4 space-y-3 text-sm text-foreground-muted">
               <li className="flex items-start gap-2">
-                <MapPin
-                  size={16}
-                  weight="light"
-                  className="mt-0.5 shrink-0 text-accent"
-                />
+                <MapPin size={16} weight="light" className="mt-0.5 shrink-0 text-accent" />
                 <div>
                   <p>610 Main St</p>
                   <p>Bryson City, NC 28713</p>
                 </div>
               </li>
               <li className="flex items-center gap-2">
-                <Phone
-                  size={16}
-                  weight="light"
-                  className="shrink-0 text-accent"
-                />
-                <a
-                  href="tel:+18284889521"
-                  className="transition-colors hover:text-accent"
-                >
+                <Phone size={16} weight="light" className="shrink-0 text-accent" />
+                <a href="tel:+18284889521" className="transition-colors hover:text-accent">
                   (828) 488-9521
                 </a>
               </li>
@@ -136,8 +113,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 sm:flex-row">
           <p className="text-xs text-foreground-muted/60">
-            &copy; {new Date().getFullYear()} Bar-B-Que Wagon. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} Bar-B-Que Wagon. All rights reserved.
           </p>
           <p className="text-xs text-foreground-muted/40">
             Crafted with fire and pride in Bryson City, NC

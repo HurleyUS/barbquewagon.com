@@ -35,10 +35,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Catering form error:", error);
-    return NextResponse.json(
-      { error: "Failed to submit inquiry" },
-      { status: 500 },
-    );
+    return NextResponse.json({ error: "Failed to submit inquiry" }, { status: 500 });
   }
 }
 

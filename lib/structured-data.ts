@@ -79,21 +79,9 @@ export function getMenuSchema() {
       "@type": "MenuSection",
       name: "Smoked Meats",
       hasMenuItem: [
-        menuItem(
-          "Smoked Brisket",
-          "Slow-smoked 14 hours over hickory.",
-          "14.99",
-        ),
-        menuItem(
-          "Pulled Pork",
-          "Hand-pulled Carolina-style with house vinegar sauce.",
-          "12.99",
-        ),
-        menuItem(
-          "Baby Back Ribs",
-          "Fall-off-the-bone tender, dry rubbed, slow smoked.",
-          "16.99",
-        ),
+        menuItem("Smoked Brisket", "Slow-smoked 14 hours over hickory.", "14.99"),
+        menuItem("Pulled Pork", "Hand-pulled Carolina-style with house vinegar sauce.", "12.99"),
+        menuItem("Baby Back Ribs", "Fall-off-the-bone tender, dry rubbed, slow smoked.", "16.99"),
         menuItem(
           "Smoked Turkey",
           "Half pound of tender smoked turkey breast with two sides.",

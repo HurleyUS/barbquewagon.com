@@ -26,12 +26,15 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 When a Next.js project has both `bun.lock` and `.next/` at the project root:
 
-- Local preflight is `bun lint`, then `~/bin/freview`; `bun lint` should run Biome format, Oxlint fix, and `tsgo --noEmit`.
+- Local preflight is `bun lint`, then `~/bin/freview`; `bun lint` is the canonical local gate and must run Biome format, Oxlint fix, and `tsgo --noEmit`.
+- Production CI must not run lint, typecheck, or freview; those are local pre-push gates.
 - Production Blacksmith/Vercel prebuilt CI installs with `bun install --production --frozen-lockfile`.
 - Any package needed by `vercel build --prod` must be in `dependencies`, not `devDependencies`.
 - Restore `~/.bun/install/cache` and `.next/cache` in CI before install/build.
-- Deploy only `.vercel/output` with `vercel deploy --prebuilt`; do not prune `node_modules` after build.
-- Do not use `npm prune --production` in Bun-managed projects.
+- Run the Vercel CLI with `bunx vercel`, not `bunx --bun vercel`, for pull/build/deploy/inspect steps.
+- Deploy only archived `.vercel/output` with `vercel deploy --prebuilt --archive=tgz`; do not prune `node_modules` after build.
+- Do not use `npm prune --production` or `bun prune --production` in Bun-managed Vercel prebuilt projects.
+- Protected branch pre-push hooks must run `bun lint` first, then `~/bin/freview`; freview remains outside the lint script.
 
 @README.md
 

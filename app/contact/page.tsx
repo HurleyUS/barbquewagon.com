@@ -2,13 +2,7 @@
  * App Contact Page public module surface.
  */
 import type { Metadata } from "next";
-import {
-  Phone,
-  Envelope,
-  MapPin,
-  Clock,
-  NavigationArrow,
-} from "@phosphor-icons/react/dist/ssr";
+import { Phone, Envelope, MapPin, Clock, NavigationArrow } from "@phosphor-icons/react/dist/ssr";
 import { ContactForm } from "./contact-form";
 
 export const metadata: Metadata = {
@@ -66,9 +60,8 @@ export default function ContactPage() {
             Come See Us
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-foreground-muted">
-            Whether you have a question, want to place a large order, or just
-            want to tell us how much you loved the brisket — we want to hear
-            from you.
+            Whether you have a question, want to place a large order, or just want to tell us how
+            much you loved the brisket — we want to hear from you.
           </p>
         </div>
       </section>
@@ -83,24 +76,17 @@ export default function ContactPage() {
                 Get in Touch
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-foreground-muted">
-                Drop us a line or just stop by. We are always happy to talk
-                barbecue.
+                Drop us a line or just stop by. We are always happy to talk barbecue.
               </p>
 
               <div className="mt-8 space-y-6">
                 {contactInfo.map((info) => (
                   <div key={info.title} className="flex gap-4">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/10">
-                      <info.icon
-                        size={20}
-                        weight="light"
-                        className="text-accent"
-                      />
+                      <info.icon size={20} weight="light" className="text-accent" />
                     </div>
                     <div>
-                      <h3 className="text-sm font-semibold text-foreground-strong">
-                        {info.title}
-                      </h3>
+                      <h3 className="text-sm font-semibold text-foreground-strong">{info.title}</h3>
                       {info.lines.map((line) => (
                         <p key={line} className="text-sm text-foreground-muted">
                           {line}
@@ -147,9 +133,7 @@ export default function ContactPage() {
                       <tr
                         key={row.day}
                         className={`${
-                          index !== hours.length - 1
-                            ? "border-b border-border"
-                            : ""
+                          index !== hours.length - 1 ? "border-b border-border" : ""
                         } ${row.closed ? "bg-card-bg/50" : ""}`}
                       >
                         <td className="px-4 py-3 text-sm font-medium text-foreground-strong">
@@ -157,9 +141,7 @@ export default function ContactPage() {
                         </td>
                         <td
                           className={`px-4 py-3 text-right text-sm ${
-                            row.closed
-                              ? "text-foreground-muted/50 italic"
-                              : "text-foreground-muted"
+                            row.closed ? "text-foreground-muted/50 italic" : "text-foreground-muted"
                           }`}
                         >
                           {row.time}
@@ -176,12 +158,10 @@ export default function ContactPage() {
 
             {/* Map placeholder */}
             <div>
-              <h2 className="font-display text-2xl font-bold text-foreground-strong">
-                Find Us
-              </h2>
+              <h2 className="font-display text-2xl font-bold text-foreground-strong">Find Us</h2>
               <p className="mt-3 text-sm text-foreground-muted">
-                Located on Main Street in Bryson City — in the heart of the
-                Great Smoky Mountains. Look for the smoke.
+                Located on Main Street in Bryson City — in the heart of the Great Smoky Mountains.
+                Look for the smoke.
               </p>
               <div className="mt-6 overflow-hidden rounded-lg border border-border bg-card-bg">
                 {/* Map placeholder area */}
@@ -191,9 +171,7 @@ export default function ContactPage() {
                     <p className="font-display text-lg font-semibold text-foreground-strong">
                       610 Main St
                     </p>
-                    <p className="text-sm text-foreground-muted">
-                      Bryson City, NC 28713
-                    </p>
+                    <p className="text-sm text-foreground-muted">Bryson City, NC 28713</p>
                   </div>
                   <a
                     href="https://www.google.com/maps/dir/?api=1&destination=610+Main+St+Bryson+City+NC+28713"

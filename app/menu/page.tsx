@@ -30,8 +30,7 @@ interface MenuCategory {
 const menuCategories: MenuCategory[] = [
   {
     name: "Smoked Meat Plates",
-    description:
-      "All plates served with your choice of 2 sides and fresh-baked cornbread.",
+    description: "All plates served with your choice of 2 sides and fresh-baked cornbread.",
     items: [
       {
         name: "Smoked Brisket Plate",
@@ -68,8 +67,7 @@ const menuCategories: MenuCategory[] = [
       },
       {
         name: "Combo Plate",
-        description:
-          "Can not decide? Pick any two meats and we will pile them on the same plate.",
+        description: "Can not decide? Pick any two meats and we will pile them on the same plate.",
         price: "$17.99",
         tag: "Best Value",
       },
@@ -77,8 +75,7 @@ const menuCategories: MenuCategory[] = [
   },
   {
     name: "Sandwiches",
-    description:
-      "Served on a toasted brioche bun with house pickles. Add a side for $3.49.",
+    description: "Served on a toasted brioche bun with house pickles. Add a side for $3.49.",
     items: [
       {
         name: "Brisket Sandwich",
@@ -88,15 +85,13 @@ const menuCategories: MenuCategory[] = [
       },
       {
         name: "Pulled Pork Sandwich",
-        description:
-          "Hand-pulled pork with tangy vinegar slaw on top. The Carolina way.",
+        description: "Hand-pulled pork with tangy vinegar slaw on top. The Carolina way.",
         price: "$9.99",
         tag: "Most Popular",
       },
       {
         name: "Smoked Turkey Sandwich",
-        description:
-          "Thick-sliced smoked turkey with pepper jack, lettuce, and chipotle mayo.",
+        description: "Thick-sliced smoked turkey with pepper jack, lettuce, and chipotle mayo.",
         price: "$10.49",
       },
       {
@@ -119,15 +114,13 @@ const menuCategories: MenuCategory[] = [
       },
       {
         name: "Mac & Cheese",
-        description:
-          "Three-cheese blend, baked until golden and bubbly. Comfort in a bowl.",
+        description: "Three-cheese blend, baked until golden and bubbly. Comfort in a bowl.",
         price: "$4.49",
         tag: "House Made",
       },
       {
         name: "Baked Beans",
-        description:
-          "Slow-cooked with smoked pork and brown sugar. Sweet, savory, and smoky.",
+        description: "Slow-cooked with smoked pork and brown sugar. Sweet, savory, and smoky.",
         price: "$3.49",
       },
       {
@@ -150,14 +143,12 @@ const menuCategories: MenuCategory[] = [
       },
       {
         name: "Cornbread",
-        description:
-          "Fresh-baked daily. Sweet, buttery, and still warm from the oven.",
+        description: "Fresh-baked daily. Sweet, buttery, and still warm from the oven.",
         price: "$2.49",
       },
       {
         name: "Fried Okra",
-        description:
-          "Lightly breaded and fried until crispy. A Southern staple done right.",
+        description: "Lightly breaded and fried until crispy. A Southern staple done right.",
         price: "$3.99",
       },
     ],
@@ -167,8 +158,7 @@ const menuCategories: MenuCategory[] = [
     items: [
       {
         name: "Sweet Tea",
-        description:
-          "Brewed fresh daily. Sweet enough to make you smile, not enough to regret it.",
+        description: "Brewed fresh daily. Sweet enough to make you smile, not enough to regret it.",
         price: "$2.49",
       },
       {
@@ -237,9 +227,8 @@ export default function MenuPage() {
             Smoked Fresh Daily
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-foreground-muted">
-            Everything on this menu is made from scratch, smoked over real wood,
-            and served with pride. When it sells out, the kitchen closes. That
-            is just how fresh we keep it.
+            Everything on this menu is made from scratch, smoked over real wood, and served with
+            pride. When it sells out, the kitchen closes. That is just how fresh we keep it.
           </p>
         </div>
       </section>
@@ -256,9 +245,7 @@ export default function MenuPage() {
                     {category.name}
                   </h2>
                   {category.description && (
-                    <p className="mt-2 text-sm text-foreground-muted">
-                      {category.description}
-                    </p>
+                    <p className="mt-2 text-sm text-foreground-muted">{category.description}</p>
                   )}
                 </div>
 
@@ -302,8 +289,8 @@ export default function MenuPage() {
               Feeding a Crowd?
             </h2>
             <p className="mt-3 text-foreground-muted">
-              We cater events from 10 to 100+ people. Same slow-smoked quality,
-              scaled up for your gathering.
+              We cater events from 10 to 100+ people. Same slow-smoked quality, scaled up for your
+              gathering.
             </p>
             <Link
               href="/catering"

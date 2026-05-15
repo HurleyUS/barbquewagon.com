@@ -90,11 +90,7 @@ export function Navbar() {
           aria-expanded={mobileOpen}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
         >
-          {mobileOpen ? (
-            <X size={24} weight="light" />
-          ) : (
-            <List size={24} weight="light" />
-          )}
+          {mobileOpen ? <X size={24} weight="light" /> : <List size={24} weight="light" />}
         </button>
       </nav>
 

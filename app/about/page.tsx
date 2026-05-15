@@ -101,11 +101,10 @@ export default function AboutPage() {
               One Fire.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-foreground-muted">
-              Bar-B-Que Wagon is not a franchise. It is not a concept. It is Pat
-              Monteith&apos;s life&apos;s work — over 20 years of wood smoke,
-              early mornings, and mouthwatering barbecue right here in Bryson
-              City. Everything we serve carries the weight of decades spent
-              perfecting the craft in the heart of the Great Smoky Mountains.
+              Bar-B-Que Wagon is not a franchise. It is not a concept. It is Pat Monteith&apos;s
+              life&apos;s work — over 20 years of wood smoke, early mornings, and mouthwatering
+              barbecue right here in Bryson City. Everything we serve carries the weight of decades
+              spent perfecting the craft in the heart of the Great Smoky Mountains.
             </p>
           </div>
         </div>
@@ -116,15 +115,12 @@ export default function AboutPage() {
         <div className="absolute inset-0 grain" />
         <div className="relative mx-auto max-w-4xl px-6 text-center lg:px-8">
           <blockquote className="font-display text-2xl leading-relaxed font-medium text-foreground-strong italic sm:text-3xl">
-            &ldquo;Barbecue is not something you make. It is something you tend.
-            You give it time, you give it attention, and it gives back something
-            you can not get any other way.&rdquo;
+            &ldquo;Barbecue is not something you make. It is something you tend. You give it time,
+            you give it attention, and it gives back something you can not get any other way.&rdquo;
           </blockquote>
           <div className="mt-6 flex items-center justify-center gap-3">
             <div className="h-px w-12 bg-accent" />
-            <span className="text-sm font-medium text-accent">
-              Pat Monteith, Pitmaster
-            </span>
+            <span className="text-sm font-medium text-accent">Pat Monteith, Pitmaster</span>
             <div className="h-px w-12 bg-accent" />
           </div>
         </div>
@@ -162,9 +158,7 @@ export default function AboutPage() {
                   </div>
 
                   {/* Content */}
-                  <div
-                    className={`md:w-1/2 ${index % 2 === 0 ? "md:pr-16" : "md:pl-16"}`}
-                  >
+                  <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pr-16" : "md:pl-16"}`}>
                     <div className="rounded-lg border border-border bg-card-bg p-6 lg:p-8">
                       <span className="font-display text-2xl font-bold text-accent">
                         {event.year}
@@ -196,8 +190,8 @@ export default function AboutPage() {
               Our Values
             </h2>
             <p className="mt-4 text-foreground-muted">
-              These are not corporate values on a plaque. These are the things
-              we actually do, every single day.
+              These are not corporate values on a plaque. These are the things we actually do, every
+              single day.
             </p>
           </div>
 
@@ -208,11 +202,7 @@ export default function AboutPage() {
                 className="rounded-lg border border-border bg-card-bg p-6 transition-colors hover:border-border-hover"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
-                  <value.icon
-                    size={24}
-                    weight="light"
-                    className="text-accent"
-                  />
+                  <value.icon size={24} weight="light" className="text-accent" />
                 </div>
                 <h3 className="mt-4 font-display text-lg font-bold text-foreground-strong">
                   {value.title}
@@ -237,12 +227,8 @@ export default function AboutPage() {
               { stat: "610", label: "Main Street, Bryson City" },
             ].map((item) => (
               <div key={item.label} className="text-center">
-                <p className="font-display text-4xl font-bold text-accent">
-                  {item.stat}
-                </p>
-                <p className="mt-2 text-sm text-foreground-muted">
-                  {item.label}
-                </p>
+                <p className="font-display text-4xl font-bold text-accent">{item.stat}</p>
+                <p className="mt-2 text-sm text-foreground-muted">{item.label}</p>
               </div>
             ))}
           </div>
