@@ -2,12 +2,19 @@
 
 ## Active
 
-- [ ] Wire catering/contact forms to Convex backend (#6)
-- [ ] Add Convex schema for form submissions
-- [ ] Set up Resend email notifications on form submit
+- [ ] Replace footer Instagram `href="#"` with a real URL (or remove)
+- [ ] Verify production `NEXT_PUBLIC_CONVEX_URL`, `RESEND_API_KEY`, `OWNER_EMAIL` / `FROM_EMAIL`
+- [ ] Add `robots.ts` / `sitemap.ts` + stronger OpenGraph (see ROADMAP)
+
+## Done (do not re-open)
+
+- [x] Wire catering/contact forms to API + Resend
+- [x] Convex `leads` schema + `saveLead` persistence when configured
+- [x] Zod validation + error handling on contact/catering forms
+- [x] Bryson City copy correction
 
 ## Backlog
 
-- [ ] Add SEO metadata + OpenGraph images
-- [ ] Add Google Maps embed for location
-- [ ] Add photo gallery section
+- [ ] Google Maps embed for location
+- [ ] Photo gallery section
+- [ ] shadcn Sheet mobile nav / Button-asChild CTAs (ROADMAP UI primitives)
