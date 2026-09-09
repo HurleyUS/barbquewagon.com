@@ -73,7 +73,9 @@ export function CateringForm() {
       form.reset();
     } catch (error) {
       console.error("Catering form submission error:", error);
-      toast.error("Failed to submit inquiry. Please try again.");
+      toast.error(
+        error instanceof Error ? error.message : "Could not send right now. Call (828) 488-9521.",
+      );
     } finally {
       setPending("catering", false);
     }
@@ -115,7 +117,9 @@ async function submitCateringForm(data: CateringFormData) {
     headers: { "Content-Type": "application/json" },
     method: "POST",
   });
-  if (!response.ok) throw new Error(await response.text());
+  if (response.ok) return;
+  const payload = (await response.json().catch(() => null)) as { error?: string } | null;
+  throw new Error(payload?.error ?? "Could not send right now. Call (828) 488-9521.");
 }
 
 function TextField(props: {

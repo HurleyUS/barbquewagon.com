@@ -2,7 +2,7 @@
 
 ## Active
 
-- [ ] Add production `RESEND_API_KEY` + `FROM_EMAIL` on a verified domain (Convex is already set; mail is skipped until then)
+- [ ] Upgrade Convex (free plan disabled) or add `RESEND_API_KEY` + `FROM_EMAIL` on a verified domain so form submits land
 - [ ] Add `robots.ts` / `sitemap.ts` + stronger OpenGraph (see ROADMAP)
 
 ## Done (do not re-open)

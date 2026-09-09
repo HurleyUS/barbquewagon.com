@@ -4,7 +4,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { saveLead } from "@/lib/lead-store";
-import { leadCaptureConfigured, sendOwnerEmail } from "@/lib/owner-email";
+import { sendOwnerEmail } from "@/lib/owner-email";
 
 const cateringSchema = z.object({
   name: z.string().min(2).max(100),
@@ -17,23 +17,25 @@ const cateringSchema = z.object({
 });
 
 export async function POST(request: NextRequest) {
+  let body: unknown;
   try {
-    if (!leadCaptureConfigured()) {
-      return NextResponse.json({ error: "Lead capture is not configured" }, { status: 503 });
-    }
-
-    const body = await request.json();
-    const result = cateringSchema.safeParse(body);
-
-    if (!result.success) return invalidFormData();
-
-    await processCateringInquiry(result.data);
-
-    return NextResponse.json({ success: true });
-  } catch (error) {
-    console.error("Catering form error:", error);
-    return NextResponse.json({ error: "Failed to submit inquiry" }, { status: 500 });
+    body = await request.json();
+  } catch {
+    return invalidFormData();
   }
+
+  const result = cateringSchema.safeParse(body);
+  if (!result.success) return invalidFormData();
+
+  const captured = await processCateringInquiry(result.data);
+  if (!captured) {
+    return NextResponse.json(
+      { error: "Could not send right now. Call (828) 488-9521." },
+      { status: 503 },
+    );
+  }
+
+  return NextResponse.json({ success: true });
 }
 
 function invalidFormData() {
@@ -41,7 +43,7 @@ function invalidFormData() {
 }
 
 async function processCateringInquiry(inquiry: z.infer<typeof cateringSchema>) {
-  await saveLead({
+  const saved = await saveLead({
     email: inquiry.email,
     message: cateringDetails(inquiry),
     name: inquiry.name,
@@ -49,12 +51,12 @@ async function processCateringInquiry(inquiry: z.infer<typeof cateringSchema>) {
     source: "barbquewagon.com",
     type: "catering",
   });
-
-  await sendOwnerEmail({
+  const emailed = await sendOwnerEmail({
     replyTo: inquiry.email,
     subject: `[Barb-Que Wagon] Catering Inquiry — ${inquiry.eventType} on ${inquiry.date}`,
     text: cateringEmail(inquiry),
   });
+  return saved || emailed;
 }
 
 function cateringDetails(inquiry: z.infer<typeof cateringSchema>) {
