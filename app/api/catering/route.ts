@@ -2,16 +2,9 @@
  * App Api Catering Route public module surface.
  */
 import { NextRequest, NextResponse } from "next/server";
-import { Resend } from "resend";
 import { z } from "zod";
 import { saveLead } from "@/lib/lead-store";
-
-function getResend() {
-  return new Resend(process.env.RESEND_API_KEY);
-}
-
-const OWNER_EMAIL = process.env.OWNER_EMAIL ?? "info@barbquewagon.com";
-const FROM_EMAIL = process.env.FROM_EMAIL ?? "noreply@barbquewagon.com";
+import { leadCaptureConfigured, sendOwnerEmail } from "@/lib/owner-email";
 
 const cateringSchema = z.object({
   name: z.string().min(2).max(100),
@@ -25,6 +18,10 @@ const cateringSchema = z.object({
 
 export async function POST(request: NextRequest) {
   try {
+    if (!leadCaptureConfigured()) {
+      return NextResponse.json({ error: "Lead capture is not configured" }, { status: 503 });
+    }
+
     const body = await request.json();
     const result = cateringSchema.safeParse(body);
 
@@ -53,9 +50,7 @@ async function processCateringInquiry(inquiry: z.infer<typeof cateringSchema>) {
     type: "catering",
   });
 
-  await getResend().emails.send({
-    from: FROM_EMAIL,
-    to: OWNER_EMAIL,
+  await sendOwnerEmail({
     replyTo: inquiry.email,
     subject: `[Barb-Que Wagon] Catering Inquiry — ${inquiry.eventType} on ${inquiry.date}`,
     text: cateringEmail(inquiry),

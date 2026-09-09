@@ -1,6 +1,10 @@
 # Bar-B-Que Wagon
 
-Restaurant website for Bar-B-Que Wagon — a BBQ food truck / catering service.
+Restaurant website for Bar-B-Que Wagon — Bryson City, NC BBQ.
+
+**Live:** https://barbquewagoncom.vercel.app
+
+Apex `barbquewagon.com` has no DNS. The homepage is the Vercel alias. Do not fight the apex.
 
 ## Tech Stack
 
@@ -27,4 +31,4 @@ bun dev
 
 ## Deployment
 
-Deployed via Vercel. Push to `main` to trigger a deploy.
+Vercel project `barbquewagon.com` (team hustle-launch). Git deploys on `main` are off. Ship the prebuilt output with `bun ship` / Blacksmith `ship.yml`.

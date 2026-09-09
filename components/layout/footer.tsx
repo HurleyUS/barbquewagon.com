@@ -2,7 +2,7 @@
  * Components Layout Footer public module surface.
  */
 import Link from "next/link";
-import { Phone, MapPin, Clock, FacebookLogo, InstagramLogo } from "@phosphor-icons/react/dist/ssr";
+import { Phone, MapPin, Clock, FacebookLogo } from "@phosphor-icons/react/dist/ssr";
 
 export function Footer() {
   return (
@@ -35,13 +35,6 @@ export function Footer() {
                 aria-label="Facebook"
               >
                 <FacebookLogo size={20} weight="light" />
-              </a>
-              <a
-                href="#"
-                className="flex h-10 w-10 items-center justify-center rounded-md border border-border text-foreground-muted transition-colors hover:border-accent hover:text-accent"
-                aria-label="Instagram"
-              >
-                <InstagramLogo size={20} weight="light" />
               </a>
             </div>
           </div>

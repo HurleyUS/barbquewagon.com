@@ -3,6 +3,9 @@
  * @see https://developers.google.com/search/docs/appearance/structured-data
  */
 
+/** Live homepage. Apex barbquewagon.com has no DNS. */
+export const SITE_URL = "https://barbquewagoncom.vercel.app";
+
 const BUSINESS_INFO = {
   name: "Bar-B-Que Wagon",
   address: {
@@ -13,7 +16,7 @@ const BUSINESS_INFO = {
   },
   phone: "+1-828-488-9521",
   email: "bbqwagon@gmail.com",
-  url: "https://barbquewagon.com",
+  url: SITE_URL,
   geo: { lat: 35.4312, lng: -83.4488 },
   priceRange: "$$",
   cuisine: "Barbecue",

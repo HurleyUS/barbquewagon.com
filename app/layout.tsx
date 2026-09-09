@@ -6,6 +6,7 @@ import { Playfair_Display, DM_Sans } from "next/font/google";
 import { Providers } from "@/providers";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { SITE_URL } from "@/lib/structured-data";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -21,6 +22,10 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  alternates: {
+    canonical: "/",
+  },
   title: {
     default: "Bar-B-Que Wagon | Slow Smoked BBQ in Bryson City, NC",
     template: "%s | Bar-B-Que Wagon",
@@ -42,6 +47,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Bar-B-Que Wagon",
+    url: SITE_URL,
   },
 };
 

@@ -2,16 +2,9 @@
  * App Api Contact Route public module surface.
  */
 import { NextRequest, NextResponse } from "next/server";
-import { Resend } from "resend";
 import { z } from "zod";
 import { saveLead } from "@/lib/lead-store";
-
-function getResend() {
-  return new Resend(process.env.RESEND_API_KEY);
-}
-
-const OWNER_EMAIL = process.env.OWNER_EMAIL ?? "info@barbquewagon.com";
-const FROM_EMAIL = process.env.FROM_EMAIL ?? "noreply@barbquewagon.com";
+import { leadCaptureConfigured, sendOwnerEmail } from "@/lib/owner-email";
 
 const contactSchema = z.object({
   name: z.string().min(2).max(100),
@@ -23,6 +16,10 @@ const contactSchema = z.object({
 
 export async function POST(request: NextRequest) {
   try {
+    if (!leadCaptureConfigured()) {
+      return NextResponse.json({ error: "Lead capture is not configured" }, { status: 503 });
+    }
+
     const body = await request.json();
     const result = contactSchema.safeParse(body);
 
@@ -41,9 +38,7 @@ export async function POST(request: NextRequest) {
       type: "contact",
     });
 
-    await getResend().emails.send({
-      from: FROM_EMAIL,
-      to: OWNER_EMAIL,
+    await sendOwnerEmail({
       replyTo: email,
       subject: `[Barb-Que Wagon] Contact: ${subject}`,
       text: [

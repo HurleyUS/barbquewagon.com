@@ -2,8 +2,7 @@
 
 ## Active
 
-- [ ] Replace footer Instagram `href="#"` with a real URL (or remove)
-- [ ] Verify production `NEXT_PUBLIC_CONVEX_URL`, `RESEND_API_KEY`, `OWNER_EMAIL` / `FROM_EMAIL`
+- [ ] Add production `RESEND_API_KEY` + `FROM_EMAIL` on a verified domain (Convex is already set; mail is skipped until then)
 - [ ] Add `robots.ts` / `sitemap.ts` + stronger OpenGraph (see ROADMAP)
 
 ## Done (do not re-open)
@@ -12,6 +11,9 @@
 - [x] Convex `leads` schema + `saveLead` persistence when configured
 - [x] Zod validation + error handling on contact/catering forms
 - [x] Bryson City copy correction
+- [x] Remove footer Instagram `href="#"` (no real profile; Facebook stays)
+- [x] Point homepage / JSON-LD / canonical at https://barbquewagoncom.vercel.app
+- [x] Stop form 500s when Resend env is missing
 
 ## Backlog
 

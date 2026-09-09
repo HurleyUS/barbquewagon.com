@@ -51,7 +51,7 @@
 
 - [ ] Ensure the mobile nav traps focus, closes on Escape, restores focus, and exposes title/description semantics.
 - [ ] Add consistent `focus-visible` rings to all buttons, links, inputs, selects, and textareas.
-- [ ] Replace the footer Instagram `href="#"` with a real URL or remove it.
+- [x] Replace the footer Instagram `href="#"` with a real URL or remove it.
 - [ ] Add an accessible label or caption to the contact hours table.
 - [ ] Ensure form fields set `aria-invalid` and connect errors with `aria-describedby`.
 - [ ] Add `prefers-reduced-motion` handling for decorative ember/smoke animations.
